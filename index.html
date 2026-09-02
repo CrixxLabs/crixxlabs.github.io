@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CRIXX — Builder. Thinker. Experimenter.</title>
+  <title>CRIXX_ — Builder. Thinker. Experimenter.</title>
   <meta name="description" content="CRIXX / CrixxLabs — a personal software lab for AI systems, automation, search, Windows tooling, and experiments. Home of Jarvis, ORION, SENTINEL, and PHOENIX." />
   <meta name="author" content="CRIXX" />
   <meta name="robots" content="index, follow" />
@@ -15,21 +15,21 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="CRIXX" />
-  <meta property="og:title" content="CRIXX — Builder. Thinker. Experimenter." />
+  <meta property="og:title" content="CRIXX_ — Builder. Thinker. Experimenter." />
   <meta property="og:description" content="A personal software lab for AI systems, automation, search, Windows tooling, and experiments. Home of Jarvis, ORION, SENTINEL, and PHOENIX." />
   <meta property="og:url" content="https://crixxlabs.qd.je/" />
   <meta property="og:image" content="https://crixxlabs.qd.je/assets/pfp.jpeg" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="CRIXX — Builder. Thinker. Experimenter." />
+  <meta name="twitter:title" content="CRIXX_ — Builder. Thinker. Experimenter." />
   <meta name="twitter:description" content="A personal software lab for AI systems, automation, search, Windows tooling, and experiments. Home of Jarvis, ORION, SENTINEL, and PHOENIX." />
   <meta name="twitter:image" content="https://crixxlabs.qd.je/assets/pfp.jpeg" />
   <meta name="twitter:site" content="@CrixxLabs" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <!-- Subsetted CJK serif — only the glyphs used in the proverb card, kept tiny on purpose -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Noto+Serif+SC:wght@700&text=%E4%B8%83%E8%BB%A2%E3%81%B3%E5%85%AB%E8%B5%B7%E3%81%8D%E5%8D%83%E9%87%8C%E4%B9%8B%E8%A1%8C%E5%A7%8B%E4%BA%8E%E8%B6%B3%E4%B8%8B%E5%A5%BD%E3%81%8D%E3%81%93%E3%81%9D%E7%89%A9%E3%81%AE%E4%B8%8A%E6%89%8B%E3%81%AA%E3%82%8C%E5%AD%A6%E8%80%8C%E4%B8%8D%E6%80%9D%E5%88%99%E7%BD%94%E6%A1%88%E3%81%9A%E3%82%8B%E3%82%88%E3%82%8A%E7%94%A3%E3%82%80%E3%81%8C%E6%98%93%E3%81%97&display=swap" rel="stylesheet" />
 
@@ -55,6 +55,8 @@
 
       --font: 'Inter', sans-serif;
       --mono: 'JetBrains Mono', monospace;
+      --display: 'Anton', 'Bebas Neue', Impact, sans-serif;
+      --grotesk: 'Space Grotesk', var(--font);
 
       --ease: cubic-bezier(0.4,0,0.2,1);
     }
@@ -360,6 +362,137 @@
       letter-spacing: 0.1em;
       color: var(--grey2);
       text-transform: uppercase;
+    }
+
+    /* ========================
+       CRIXX V2.2 — DISPLAY / MOTION POLISH
+    ======================== */
+    .nav-logo {
+      font-family: var(--mono);
+      font-weight: 600;
+      text-shadow: 0 0 22px rgba(212,168,83,.08);
+    }
+
+    .hero-name {
+      font-family: var(--display);
+      font-size: clamp(112px, 18vw, 258px);
+      font-weight: 400;
+      letter-spacing: -0.025em;
+      line-height: .79;
+      font-stretch: condensed;
+      margin-bottom: 34px;
+      text-transform: uppercase;
+      filter: drop-shadow(0 12px 34px rgba(0,0,0,.22));
+    }
+
+    .hero-name .line1 {
+      font-family: var(--grotesk);
+      font-size: .21em;
+      font-weight: 400;
+      letter-spacing: .025em;
+      text-transform: none;
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+
+    .hero-word {
+      position: relative;
+      display: inline-block;
+      isolation: isolate;
+      transform-origin: left center;
+      animation: cixxReveal .95s cubic-bezier(.16,1,.3,1) .22s both;
+    }
+
+    .hero-word::after {
+      content: '';
+      position: absolute;
+      left: 1%;
+      right: 1%;
+      bottom: -10px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212,168,83,.35), transparent);
+      opacity: .55;
+      pointer-events: none;
+    }
+
+    .hero-left::before {
+      content: '';
+      position: absolute;
+      left: 48px;
+      top: 110px;
+      width: 52px;
+      height: 1px;
+      background: linear-gradient(90deg,var(--gold),transparent);
+      opacity: .7;
+      animation: lineWake 1s ease .05s both;
+    }
+
+    .hero-right::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background: linear-gradient(115deg, transparent 0 48%, rgba(255,255,255,.025) 50%, transparent 52% 100%);
+      background-size: 220% 100%;
+      animation: imageSheen 9s ease-in-out 1.8s infinite;
+      mix-blend-mode: screen;
+    }
+
+    .big-title, .connect-big, .jarvis-title {
+      text-wrap: balance;
+    }
+
+    .big-title {
+      font-family: var(--grotesk);
+      letter-spacing: -.045em;
+    }
+
+    .section-label {
+      position: relative;
+    }
+
+    .section-label::after {
+      content: '';
+      width: 0;
+      height: 1px;
+      background: var(--gold-border);
+      transition: width .45s var(--ease);
+    }
+
+    .section:hover .section-label::after,
+    .jarvis-section:hover .section-label::after { width: 48px; }
+
+    .major-card, .project-card, .now-card, .poster-card {
+      will-change: transform;
+    }
+
+    .major-card::after, .project-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0;
+      background: radial-gradient(360px circle at var(--mx,50%) var(--my,50%), rgba(212,168,83,.075), transparent 42%);
+      transition: opacity 220ms ease;
+    }
+    .major-card, .project-card { position: relative; }
+    .major-card:hover::after, .project-card:hover::after { opacity: 1; }
+
+    @keyframes cixxReveal {
+      from { opacity:0; transform: translateY(34px) scaleY(.88); filter: blur(8px); }
+      to { opacity:1; transform: translateY(0) scaleY(1); filter: blur(0); }
+    }
+    @keyframes lineWake { from { width:0; opacity:0; } to { width:52px; opacity:.7; } }
+    @keyframes imageSheen {
+      0%,72%,100% { background-position: 140% 0; opacity:0; }
+      78% { opacity:.18; }
+      90% { background-position:-120% 0; opacity:0; }
+    }
+
+    @media (max-width: 900px) {
+      .hero-name { font-size: clamp(88px, 25vw, 158px); line-height:.82; }
+      .hero-left::before { left:24px; top:96px; }
     }
 
     /* ========================
@@ -1820,7 +1953,7 @@
        NAV
   ======================== -->
   <nav id="mainNav">
-    <a href="#" class="nav-logo">CRIXX<span>_</span></a>
+    <a href="#" class="nav-logo" aria-label="CRIXX home">CRIXX<span>_</span></a>
 
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
@@ -1849,7 +1982,7 @@
 
       <h1 class="hero-name">
         <span class="line1">I am</span>
-        <span class="gold">CRIXX</span>
+        <span class="gold hero-word" data-text="CRIXX_">CRIXX_</span>
       </h1>
 
       <p class="hero-tagline">
@@ -1874,7 +2007,7 @@
     <div class="hero-right">
       <img
         src="assets/pfp.jpeg"
-        alt="CRIXX"
+        alt="CRIXX portrait"
         id="heroImg"
       />
     </div>
@@ -2569,7 +2702,7 @@
   ======================== -->
   <footer>
     <div class="footer-logo">
-      CRIXX · <span id="footerYear"></span> · Built deliberately.
+      CRIXX_ · <span id="footerYear"></span> · Built deliberately.
     </div>
     <div class="footer-right" id="easterHint">
       // type 'crixx' anywhere
@@ -2628,12 +2761,12 @@
         <div class="c-dot r"></div>
         <div class="c-dot y"></div>
         <div class="c-dot g"></div>
-        <span class="c-title">CRIXX — terminal v0.1</span>
+        <span class="c-title">CRIXX_ — terminal v0.2</span>
         <button class="c-close" id="cClose">ESC</button>
       </div>
       <div class="c-body" id="cBody">
         <span class="c-line gold">
-          Welcome to CRIXX terminal.
+          Welcome to CRIXX_ terminal.
         </span>
         <span class="c-line dim">—</span>
         <span class="c-line bright">
@@ -3300,6 +3433,16 @@
     });
 
     // CONSOLE DEVELOPER EGG
+
+    // Subtle cursor-aware highlight on project surfaces. Decorative only.
+    document.querySelectorAll('.major-card, .project-card').forEach(card => {
+      card.addEventListener('pointermove', (e) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+        card.style.setProperty('--my', `${e.clientY - r.top}px`);
+      });
+    });
+
     console.log(
       '%c CRIXX ',
       'background:#d4a853;color:#080809;font-size:20px;' +
