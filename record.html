@@ -21,7 +21,7 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23080809'/%3E%3Ctext x='32' y='44' font-family='monospace' font-weight='700' font-size='34' fill='%23d4a853' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet" />
   <style>
     :root{--black:#080809;--dark:#0f0f10;--card:#141416;--hover:#1a1a1d;--border:#1f1f24;--border2:#2a2a32;--white:#f2f0ea;--grey1:#9a9a9f;--grey2:#55555c;--grey3:#303035;--gold:#d4a853;--gold-dim:rgba(212,168,83,.1);--gold-border:rgba(212,168,83,.2);--green:#4ade80;--font:'Inter',sans-serif;--mono:'JetBrains Mono',monospace;--ease:cubic-bezier(.4,0,.2,1)}
     *{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased} body{background:var(--black);color:var(--white);font-family:var(--font);overflow-x:hidden} a{color:inherit;text-decoration:none} button{font:inherit} ::selection{background:var(--gold-dim);color:var(--gold)}
@@ -29,6 +29,7 @@
     nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 48px;display:flex;justify-content:space-between;align-items:center;transition:300ms var(--ease)}nav.scrolled{background:rgba(8,8,9,.92);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:16px 48px}.nav-logo{font:500 15px var(--mono);color:var(--gold);letter-spacing:.1em}.nav-logo span{animation:blink 1.2s step-end infinite}.nav-links{display:flex;align-items:center;gap:32px;list-style:none}.nav-links a{font-size:13px;font-weight:500;color:var(--grey1);letter-spacing:.04em;transition:150ms}.nav-links a:hover,.nav-links a.active{color:var(--white)}.nav-links a.active{color:var(--gold)}.nav-cta{font:500 12px var(--mono)!important;color:var(--gold)!important;border:1px solid var(--gold-border);padding:8px 20px;border-radius:6px}.nav-toggle{display:none;background:none;border:0;flex-direction:column;gap:5px}.nav-toggle span{width:22px;height:1.5px;background:var(--grey1)}
     @keyframes blink{50%{opacity:0}}
     .hero{min-height:78vh;padding:170px 48px 100px;display:flex;align-items:flex-end;border-bottom:1px solid var(--border);position:relative;overflow:hidden}.hero::after{content:'';position:absolute;width:520px;height:520px;right:-180px;top:30px;border-radius:50%;background:radial-gradient(circle,rgba(212,168,83,.06),transparent 70%);pointer-events:none}.hero-inner,.section{width:100%;max-width:1200px;margin:0 auto}.eyebrow{font:500 11px var(--mono);letter-spacing:.16em;color:var(--gold);text-transform:uppercase;display:flex;align-items:center;gap:12px;margin-bottom:20px}.eyebrow::before{content:'';width:24px;height:1px;background:var(--gold)}h1{font-size:clamp(58px,10vw,124px);font-weight:900;letter-spacing:-.045em;line-height:.88;max-width:1000px}.muted{color:var(--grey3)}.hero-copy{margin-top:34px;max-width:650px;font-size:17px;line-height:1.8;color:var(--grey1)}.hero-copy strong{color:var(--white)}.hero-meta{margin-top:40px;display:flex;gap:10px;flex-wrap:wrap}.chip{font:500 11px var(--mono);color:var(--grey1);padding:8px 12px;border:1px solid var(--border);background:var(--dark);border-radius:100px}.chip.gold{color:var(--gold);border-color:var(--gold-border);background:var(--gold-dim)}
+    .jp-moment{max-width:1200px;margin:0 auto;padding:0 48px 30px}.jp-card{position:relative;overflow:hidden;border:1px solid var(--border);border-left:2px solid var(--gold);background:linear-gradient(135deg,#0d0d0f 0%,rgba(212,168,83,.035) 100%);border-radius:0 18px 18px 0;padding:34px 38px;display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center}.jp-card::after{content:'記録';position:absolute;right:24px;top:-18px;font-family:'Noto Serif JP',serif;font-size:86px;font-weight:700;color:rgba(212,168,83,.035);pointer-events:none}.jp-native{font-family:'Noto Serif JP',serif;font-size:clamp(28px,4vw,46px);font-weight:700;line-height:1.15;color:var(--gold);white-space:nowrap}.jp-meta{position:relative;z-index:1}.jp-romaji{font:500 10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--grey3);margin-bottom:8px}.jp-meaning{font-size:16px;font-weight:600;line-height:1.55;color:var(--white);margin-bottom:6px}.jp-note{font-size:12px;line-height:1.6;color:var(--grey2)}
     .section{padding:100px 48px}.section-title{font-size:clamp(38px,6vw,72px);font-weight:900;letter-spacing:-.035em;line-height:.95;margin-bottom:18px}.section-sub{max-width:660px;color:var(--grey1);line-height:1.8;font-size:15px}.divider{height:1px;background:var(--border)}
     .edu-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;margin-top:48px}.edu-card{border:1px solid var(--border);background:var(--card);border-radius:18px;padding:32px;position:relative;overflow:hidden;transition:200ms var(--ease)}.edu-card:hover{border-color:var(--gold-border);transform:translateY(-2px)}.edu-label{font:500 10px var(--mono);letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:16px}.edu-title{font-size:24px;font-weight:800;letter-spacing:-.02em;margin-bottom:8px}.edu-place{color:var(--grey1);font-size:15px;margin-bottom:16px}.edu-note{color:var(--grey2);font-size:13px;line-height:1.7}.year-pill{position:absolute;right:24px;top:24px;font:500 10px var(--mono);color:var(--green);border:1px solid rgba(74,222,128,.18);background:rgba(74,222,128,.06);padding:5px 9px;border-radius:100px}
     .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:48px}.skill-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;transition:200ms}.skill-card:hover{background:var(--hover);border-color:var(--gold-border)}.skill-head{font:600 13px var(--mono);color:var(--gold);margin-bottom:16px}.skill-list{display:flex;flex-wrap:wrap;gap:8px}.skill{font-size:12px;color:var(--grey1);border:1px solid var(--border);background:var(--black);padding:7px 10px;border-radius:6px}.skill-proof{margin-top:16px;color:var(--grey2);font-size:12px;line-height:1.6}
@@ -64,6 +65,17 @@
     <div class="hero-meta"><span class="chip gold">3rd year · BCA AI/ML/Robotics</span><span class="chip">Bengaluru</span><span class="chip">Bahrain-raised</span><span class="chip">Selected evidence only</span></div>
   </div>
 </header>
+
+<section class="jp-moment" aria-label="Record motto">
+  <div class="jp-card">
+    <div class="jp-native" lang="ja">継続は力なり</div>
+    <div class="jp-meta">
+      <div class="jp-romaji">keizoku wa chikara nari · Japanese proverb</div>
+      <div class="jp-meaning">Continuance becomes strength.</div>
+      <div class="jp-note">Less about collecting proof. More about what survives after repeating the work long enough.</div>
+    </div>
+  </div>
+</section>
 
 <section class="section" id="education">
   <div class="eyebrow">Education</div>
@@ -107,6 +119,7 @@
   <div class="credential-grid">
     <article class="credential cred-featured"><div class="cred-top"><span class="cred-issuer">Google</span><span class="cred-year">2026</span></div><div class="cred-name">Google Data Analytics Professional Certificate</div><div class="cred-why">Structured data analysis, cleaning, questioning and case-study work.</div></article>
     <article class="credential cred-featured"><div class="cred-top"><span class="cred-issuer">Google</span><span class="cred-year">2026</span></div><div class="cred-name">Google AI Essentials Specialization</div><div class="cred-why">Practical AI use, prompting, responsible use and productivity workflows.</div></article>
+    <article class="credential cred-featured"><div class="cred-top"><span class="cred-issuer">Google</span><span class="cred-year">2026</span></div><div class="cred-name">Google IT Automation with Python Professional Certificate</div><div class="cred-why">Python automation, operating-system interaction, Git/GitHub, debugging, configuration management and real-world task automation.</div></article>
     <article class="credential"><div class="cred-top"><span class="cred-issuer">EDUCBA</span><span class="cred-year">2026</span></div><div class="cred-name">Deep Learning with Python: CNN, ANN & RNN Specialization</div><div class="cred-why">Deep-learning foundations connected directly to the AI/ML degree track.</div></article>
     <article class="credential"><div class="cred-top"><span class="cred-issuer">University of Illinois Urbana-Champaign</span><span class="cred-year">2026</span></div><div class="cred-name">Text Retrieval and Search Engines</div><div class="cred-why">Probably the most on-brand certificate here if you've already seen ORION.</div></article>
     <article class="credential"><div class="cred-top"><span class="cred-issuer">University of Illinois Urbana-Champaign</span><span class="cred-year">2026</span></div><div class="cred-name">Introduction to Artificial Intelligence</div><div class="cred-why">Formal AI foundations alongside the more chaotic hands-on experiments.</div></article>
@@ -114,7 +127,7 @@
     <article class="credential"><div class="cred-top"><span class="cred-issuer">Google</span><span class="cred-year">2026</span></div><div class="cred-name">Foundations of Cybersecurity</div><div class="cred-why">Useful grounding when your projects can touch files, systems, APIs and Windows state.</div></article>
     <article class="credential"><div class="cred-top"><span class="cred-issuer">Microsoft</span><span class="cred-year">2026</span></div><div class="cred-name">Master Microsoft Office 365 and Power Platform Specialization</div><div class="cred-why">Power Platform, automation and Microsoft ecosystem exposure beyond pure code.</div></article>
   </div>
-  <div class="proof-note"><strong>Why only eight?</strong> Because a certificate count is not a skill. The stronger proof is still the project page, the repos, the tests, and whether the thing actually works.</div>
+  <div class="proof-note"><strong>Why only nine?</strong> Because a certificate count is not a skill. The stronger proof is still the project page, the repos, the tests, and whether the thing actually works.</div>
 </section>
 <div class="divider"></div>
 
@@ -126,7 +139,17 @@
     <div class="learning"><div class="learning-num">01</div><div><div class="learning-name">Machine Learning</div><div class="learning-desc">Supervised learning, advanced algorithms, unsupervised learning, recommenders and reinforcement learning.</div></div><div class="learning-status">IN PROGRESS</div></div>
     <div class="learning"><div class="learning-num">02</div><div><div class="learning-name">Deep Learning</div><div class="learning-desc">Neural networks, optimization, ML project structuring, convolutional networks and sequence models.</div></div><div class="learning-status">IN PROGRESS</div></div>
     <div class="learning"><div class="learning-num">03</div><div><div class="learning-name">Modern Robotics: Mechanics, Planning & Control</div><div class="learning-desc">Robot motion, kinematics, dynamics, motion planning, manipulation and mobile robotics.</div></div><div class="learning-status">IN PROGRESS</div></div>
-    <div class="learning"><div class="learning-num">04</div><div><div class="learning-name">Google IT Automation with Python</div><div class="learning-desc">Python, operating-system interaction, Git/GitHub, debugging, configuration management and real-world automation.</div></div><div class="learning-status">IN PROGRESS</div></div>
+  </div>
+</section>
+
+<section class="jp-moment" aria-label="Record closing note">
+  <div class="jp-card">
+    <div class="jp-native" lang="ja">七転び八起き</div>
+    <div class="jp-meta">
+      <div class="jp-romaji">nana korobi ya oki · Japanese proverb</div>
+      <div class="jp-meaning">Fall seven times. Stand up eight.</div>
+      <div class="jp-note">Pretty close to the actual development process, unfortunately.</div>
+    </div>
   </div>
 </section>
 
@@ -155,10 +178,11 @@
     if(/^(hi|hey|hello|yo)\b/.test(t)){msg('Hey. This is <span class="gold">NEXA_</span>. On this page I’m mostly the person standing between you and a wall of certificates.');return}
     if(has('education','college','degree','university','study','school')){msg('Arjun is in year three of a <strong>BCA in Artificial Intelligence, Machine Learning & Robotics</strong> at Yenepoya in Bengaluru. Schooling was at Ibn Al Hytham Islamic School in Bahrain.');return}
     if(has('skill','stack','language')){msg('The strongest working areas here are Python, C#/.NET, Windows automation, APIs, AI/ML, search/retrieval, SQL/data work, Git and robotics fundamentals. The important word is <em>working</em> — most of them appear in projects, not just certificates.');return}
-    if(has('certificate','credential','coursera')){msg('The full course history is much larger. This page shows only eight selected credentials because signal beats certificate wallpaper.');return}
-    if(has('learning','currently','course','ongoing')){msg('Current high-signal tracks: machine learning, deep learning, modern robotics, and Google IT Automation with Python.');return}
+    if(has('certificate','credential','coursera')){msg('The full course history is much larger. This page shows only nine selected credentials because signal beats certificate wallpaper. Google IT Automation with Python is now complete too.');return}
+    if(has('learning','currently','course','ongoing')){msg('Current high-signal tracks: machine learning, deep learning, and modern robotics. Google IT Automation with Python moved from the queue to completed proof.');return}
     if(has('project','build')){msg('The proof layer is on the main page: Jarvis MARK VII, ORION, SENTINEL and PHOENIX.', 'system', [{label:'projects',run:()=>goMain('projects')}]);return}
     if(has('contact','hire','internship','email','linkedin')){msg('For internships, collaboration or a useful conversation, head to contact.', 'system', [{label:'contact',run:()=>goMain('connect')},{label:'github',run:()=>window.open('https://github.com/CrixxLabs','_blank','noopener')}]);return}
+    if(has('it automation','google it automation','automation certificate')){msg('<span class="gold">Google IT Automation with Python</span> is complete — Python, OS interaction, Git/GitHub, debugging, configuration management and real-world automation.');return}
     if(has('python')){msg('<span class="gold">Python</span> is the main language behind Jarvis and a lot of the automation/AI work.');return}
     if(has('c#','csharp','.net')){msg('<span class="gold">C# / .NET</span> is the stack behind PHOENIX — chosen for a typed, testable Windows system toolkit rather than a script pile.');return}
     if(has('machine learning','what is ml')){msg('<span class="gold">Machine learning</span> is about learning useful patterns from data rather than hand-coding every rule. Current study spans supervised, unsupervised, recommenders and reinforcement learning.');return}
