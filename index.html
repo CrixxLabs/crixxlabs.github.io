@@ -4,11 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CRIXX — Builder. Thinker. Experimenter.</title>
-  <meta name="description" content="I build systems that don't exist yet. 
-  AI. Automation. Code. Curiosity." />
+  <meta name="description" content="CRIXX / CrixxLabs — a builder working on AI systems, automation, and Windows tooling. Home of Jarvis, Orion, Sentinel, and Phoenix." />
+  <meta name="author" content="CRIXX" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://crixxlabs.qd.je/" />
+
+  <!-- Favicon: gold monogram on black, inline SVG, no extra asset needed -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23080809'/%3E%3Ctext x='32' y='44' font-family='monospace' font-weight='700' font-size='34' fill='%23d4a853' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="CRIXX" />
+  <meta property="og:title" content="CRIXX — Builder. Thinker. Experimenter." />
+  <meta property="og:description" content="AI systems, automation, and Windows tooling. Home of Jarvis, Orion, Sentinel, and Phoenix." />
+  <meta property="og:url" content="https://crixxlabs.qd.je/" />
+  <meta property="og:image" content="https://crixxlabs.qd.je/assets/pfp.jpeg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CRIXX — Builder. Thinker. Experimenter." />
+  <meta name="twitter:description" content="AI systems, automation, and Windows tooling. Home of Jarvis, Orion, Sentinel, and Phoenix." />
+  <meta name="twitter:image" content="https://crixxlabs.qd.je/assets/pfp.jpeg" />
+  <meta name="twitter:site" content="@CrixxLabs" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <!-- Subsetted CJK serif — only the glyphs used in the proverb card, kept tiny on purpose -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Noto+Serif+SC:wght@700&text=%E4%B8%83%E8%BB%A2%E3%81%B3%E5%85%AB%E8%B5%B7%E3%81%8D%E5%8D%83%E9%87%8C%E4%B9%8B%E8%A1%8C%E5%A7%8B%E4%BA%8E%E8%B6%B3%E4%B8%8B%E5%A5%BD%E3%81%8D%E3%81%93%E3%81%9D%E7%89%A9%E3%81%AE%E4%B8%8A%E6%89%8B%E3%81%AA%E3%82%8C%E5%AD%A6%E8%80%8C%E4%B8%8D%E6%80%9D%E5%88%99%E7%BD%94%E6%A1%88%E3%81%9A%E3%82%8B%E3%82%88%E3%82%8A%E7%94%A3%E3%82%80%E3%81%8C%E6%98%93%E3%81%97&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -1181,6 +1204,511 @@
       .btn-gold, .btn-ghost { width: 100%; justify-content: center; }
       .connect-links { flex-direction: column; align-items: stretch; }
       .c-link { justify-content: center; }
+      .now-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ========================
+       MAJOR PROJECT CARDS
+       (Orion / Sentinel / Phoenix)
+    ======================== */
+    .majors-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 40px 0 64px;
+    }
+
+    .major-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: 250ms var(--ease);
+    }
+
+    .major-card:hover {
+      border-color: var(--gold-border);
+      background: var(--hover);
+      transform: translateY(-3px);
+    }
+
+    .major-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .major-name {
+      font-family: var(--mono);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.01em;
+    }
+
+    .major-role {
+      font-size: 12px;
+      color: var(--grey2);
+      margin-top: 4px;
+    }
+
+    .major-status {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 100px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .status-dev {
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+      color: var(--gold);
+    }
+
+    .status-local {
+      background: rgba(96,165,250,0.08);
+      border: 1px solid rgba(96,165,250,0.2);
+      color: #60a5fa;
+    }
+
+    .major-desc {
+      font-size: 14px;
+      color: var(--grey1);
+      line-height: 1.7;
+      flex-grow: 1;
+    }
+
+    .major-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .major-links {
+      display: flex;
+      gap: 10px;
+      margin-top: 4px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .major-link {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--grey1);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 150ms;
+    }
+
+    .major-link:hover { color: var(--gold); }
+
+    .major-link.disabled {
+      color: var(--grey3);
+      cursor: default;
+      pointer-events: none;
+    }
+
+    @media (max-width: 900px) {
+      .majors-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ========================
+       NOW / RANDOM SECTION
+    ======================== */
+    .now-header-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .now-synced {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--grey3);
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+
+    .now-synced .dot {
+      color: var(--green);
+    }
+
+    .now-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 48px;
+    }
+
+    .now-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 26px;
+      transition: 200ms var(--ease);
+      position: relative;
+    }
+
+    .now-card:hover {
+      border-color: var(--gold-border);
+      background: var(--hover);
+      transform: translateY(-2px);
+    }
+
+    .now-card.now-featured {
+      grid-column: span 2;
+      background: linear-gradient(135deg, var(--card) 0%, rgba(212,168,83,0.05) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .now-card.now-proverb {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      background: var(--black);
+      border-left: 2px solid var(--gold);
+      border-radius: 0 16px 16px 0;
+      padding: 32px 36px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .now-card.now-proverb:hover { transform: none; border-color: var(--gold); }
+
+    .proverb-native {
+      font-family: 'Noto Serif JP', 'Noto Serif SC', serif;
+      font-size: clamp(34px, 5vw, 52px);
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .proverb-text { flex-grow: 1; }
+
+    .proverb-translit {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--grey2);
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+
+    .proverb-meaning {
+      font-size: 15px;
+      color: var(--white);
+      font-style: italic;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .proverb-hint {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--grey3);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 150ms;
+    }
+
+    .now-proverb:hover .proverb-hint { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .now-proverb { flex-direction: column; align-items: flex-start; gap: 16px; }
+    }
+
+    @media (max-width: 900px) {
+      .now-grid { grid-template-columns: 1fr 1fr; }
+      .now-card.now-featured { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 600px) {
+      .now-grid { grid-template-columns: 1fr; }
+      .now-card.now-featured, .now-card.now-proverb { grid-column: 1; }
+    }
+
+    .now-tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+      margin-bottom: 12px;
+      opacity: 0.85;
+    }
+
+    .now-tag::before { content: '// '; opacity: 0.6; }
+
+    .now-featured .now-value {
+      font-size: 26px;
+    }
+
+    .now-value {
+      font-size: 17px;
+      color: var(--white);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+
+    .now-sub {
+      font-size: 14px;
+      color: var(--grey1);
+      line-height: 1.65;
+    }
+
+    /* ========================
+       SCROLL ROW WRAPPER
+       (shared by music + games — edge fade + custom scrollbar)
+    ======================== */
+    .scroll-row-wrap {
+      position: relative;
+      margin-top: 48px;
+    }
+
+    .scroll-row-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 12px;
+      width: 64px;
+      background: linear-gradient(to right, transparent, var(--black));
+      pointer-events: none;
+    }
+
+    .scroll-row {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x proximity;
+      padding: 4px 4px 18px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border2) transparent;
+    }
+
+    .scroll-row::-webkit-scrollbar { height: 5px; }
+    .scroll-row::-webkit-scrollbar-track { background: transparent; }
+    .scroll-row::-webkit-scrollbar-thumb {
+      background: var(--border2);
+      border-radius: 3px;
+    }
+
+    .scroll-hint {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--grey3);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: -8px;
+      margin-bottom: 8px;
+    }
+
+    /* ========================
+       MUSIC SECTION — vinyl shelf
+    ======================== */
+    .vinyl-card {
+      flex: 0 0 180px;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding-top: 10px;
+    }
+
+    .vinyl-disc {
+      width: 168px;
+      height: 168px;
+      border-radius: 50%;
+      position: relative;
+      margin-bottom: 18px;
+      background:
+        repeating-radial-gradient(
+          circle at center,
+          #1c1c20 0px, #1c1c20 2px,
+          #131315 3px, #131315 5px
+        );
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 0 1px var(--border2);
+      transition: transform 500ms var(--ease);
+    }
+
+    .vinyl-card:hover .vinyl-disc { transform: rotate(50deg); }
+
+    .vinyl-label {
+      position: absolute;
+      inset: 32%;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #e8c98a, var(--gold) 55%, #7a5b25 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--black);
+      overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.4);
+    }
+
+    .vinyl-label img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+
+    .vinyl-label::after {
+      content: '';
+      position: absolute;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--black);
+    }
+
+    .vinyl-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 3px;
+      max-width: 170px;
+    }
+
+    .vinyl-artist {
+      font-size: 12px;
+      color: var(--grey2);
+      margin-bottom: 8px;
+    }
+
+    .vinyl-link {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--gold);
+    }
+
+    .vinyl-card:hover .vinyl-link { text-decoration: underline; }
+
+    /* ========================
+       GAMES SECTION — poster shelf
+    ======================== */
+    .poster-card {
+      flex: 0 0 200px;
+      scroll-snap-align: start;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: 250ms var(--ease);
+    }
+
+    .poster-card:hover {
+      border-color: var(--gold-border);
+      background: var(--hover);
+      transform: translateY(-5px);
+    }
+
+    .poster-art {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(155deg, var(--card) 0%, var(--black) 100%);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .poster-art img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+
+    .poster-art .poster-fallback {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--grey3);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .poster-badge {
+      position: absolute;
+      top: 10px; left: 10px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(8,8,9,0.75);
+      border: 1px solid var(--gold-border);
+      padding: 4px 9px;
+      border-radius: 100px;
+      backdrop-filter: blur(4px);
+    }
+
+    .poster-body { padding: 16px; }
+
+    .poster-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .poster-note {
+      font-size: 12px;
+      color: var(--grey2);
+      line-height: 1.6;
+      margin-bottom: 12px;
+      min-height: 34px;
+    }
+
+    .poster-link {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--grey1);
+    }
+
+    .poster-card:hover .poster-link { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .vinyl-card { flex-basis: 150px; }
+      .vinyl-disc { width: 140px; height: 140px; }
+      .poster-card { flex-basis: 170px; }
+    }
+
+    /* ========================
+       ACCESSIBILITY: REDUCED MOTION
+    ======================== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+      html { scroll-behavior: auto; }
+      .hero-right:hover img { transform: none; }
+      .project-card:hover, .major-card:hover, .vinyl-card:hover .vinyl-disc, .poster-card:hover {
+        transform: none;
+      }
+    }
+
+    /* Visible keyboard focus */
+    a:focus-visible, button:focus-visible, input:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
     }
   </style>
 </head>
@@ -1196,10 +1724,10 @@
 
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
-      <li><a href="#jarvis">Jarvis</a></li>
       <li><a href="#projects">Projects</a></li>
-      <li><a href="#thinking">Thinking</a></li>
-      <li><a href="#connect" class="nav-cta">Get in touch</a></li>
+      <li><a href="#music">Music</a></li>
+      <li><a href="#games">Games</a></li>
+      <li><a href="#connect" class="nav-cta">Contact</a></li>
     </ul>
 
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
@@ -1351,6 +1879,74 @@
   <div class="divider"></div>
 
   <!-- ========================
+       NOW / RANDOM
+       Edit these any time — they're meant to drift out of
+       date and get refreshed occasionally. Swap copy freely.
+  ======================== -->
+  <section class="section" id="now">
+
+    <div class="fade-up">
+      <div class="now-header-row">
+        <div>
+          <div class="section-label">Field log</div>
+          <h2 class="big-title">
+            Not a resume.<br>
+            <span class="muted">A running log.</span>
+          </h2>
+        </div>
+        <div class="now-synced"><span class="dot">●</span> synced <span id="nowSynced"></span></div>
+      </div>
+    </div>
+
+    <div class="now-grid fade-up">
+
+      <div class="now-card now-featured">
+        <div class="now-tag">build</div>
+        <div class="now-value">Teaching Jarvis to actually know me</div>
+        <div class="now-sub">Not autocomplete — memory. Right now I'm elbow-deep in getting a personal AI assistant to stop forgetting who it's talking to, mid-way through a multi-phase stabilization pass.</div>
+      </div>
+
+      <div class="now-card">
+        <div class="now-tag">obsession</div>
+        <div class="now-value">Windows, taken apart</div>
+        <div class="now-sub">Started as "why is this so slow." Ended with me rebuilding the optimizer myself. That's Phoenix.</div>
+      </div>
+
+      <div class="now-card">
+        <div class="now-tag">experiment</div>
+        <div class="now-value">Local AI, small hardware</div>
+        <div class="now-sub">Everyone benchmarks on cards I don't own. I'm finding out what's actually possible on the GPU I do.</div>
+      </div>
+
+      <div class="now-card">
+        <div class="now-tag">setup</div>
+        <div class="now-value">One GPU doing more than it should</div>
+        <!-- PLACEHOLDER: swap in real specs if you want them public -->
+        <div class="now-sub">Plus a phone that moonlights as a camera R&amp;D bench, and a browser with more tabs open than sense.</div>
+      </div>
+
+      <div class="now-card">
+        <div class="now-tag">fact</div>
+        <div class="now-value">Malayalam, first language</div>
+        <div class="now-sub">Which is also why a suspicious chunk of my week goes to tracking Mollywood release dates I definitely didn't need to know that closely.</div>
+      </div>
+
+      <div class="now-card now-proverb" id="proverbCard" role="button" tabindex="0" aria-label="Click to see another proverb">
+        <div class="proverb-native" id="proverbNative">七転び八起き</div>
+        <div class="proverb-text">
+          <div class="proverb-translit" id="proverbTranslit">nana korobi ya oki — Japanese</div>
+          <div class="proverb-meaning" id="proverbMeaning">"Fall down seven times, stand up eight."</div>
+          <div class="proverb-hint">click for another →</div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ========================
        JARVIS — FLAGSHIP
   ======================== -->
   <div class="jarvis-section" id="jarvis">
@@ -1487,6 +2083,99 @@
       </h2>
     </div>
 
+    <!-- ============================================
+         MAJOR BUILDS — Orion, Sentinel, Phoenix
+         Jarvis has its own flagship section above/below;
+         these three are the next tier of named projects.
+         Edit status/links as each one moves forward.
+    ============================================= -->
+    <div class="majors-grid fade-up">
+
+      <div class="major-card">
+        <div class="major-head">
+          <div>
+            <div class="major-name">ORION</div>
+            <div class="major-role">Search / Retrieval</div>
+          </div>
+          <!-- PLACEHOLDER: if Orion is complete locally but not
+               deployed, change the label below to "Built · Local only" -->
+          <span class="major-status status-dev">In development</span>
+        </div>
+        <p class="major-desc">
+          An independent, full-stack search engine — a provider-agnostic
+          retrieval layer with a custom ranking core, multiple search
+          verticals, history, and its own API. Built to understand
+          search from the ground up, not to wrap someone else's index.
+        </p>
+        <div class="major-tags">
+          <span class="p-tag">Python</span>
+          <span class="p-tag">Retrieval</span>
+          <span class="p-tag">Ranking</span>
+          <span class="p-tag">API</span>
+        </div>
+        <div class="major-links">
+          <!-- PLACEHOLDER: add real GitHub / demo links -->
+          <span class="major-link disabled">GitHub — add link</span>
+          <span class="major-link disabled">Demo — not public yet</span>
+        </div>
+      </div>
+
+      <div class="major-card">
+        <div class="major-head">
+          <div>
+            <div class="major-name">SENTINEL</div>
+            <div class="major-role">System Intelligence</div>
+          </div>
+          <span class="major-status status-dev">In development</span>
+        </div>
+        <p class="major-desc">
+          A Windows system intelligence and diagnostics platform —
+          designed to eventually become Jarvis's nervous system,
+          the machine-awareness layer that tells the assistant what's
+          actually happening on the machine it runs on.
+        </p>
+        <div class="major-tags">
+          <span class="p-tag">Windows</span>
+          <span class="p-tag">Diagnostics</span>
+          <span class="p-tag">Systems</span>
+        </div>
+        <div class="major-links">
+          <!-- PLACEHOLDER: add real GitHub / demo links -->
+          <span class="major-link disabled">GitHub — add link</span>
+          <span class="major-link disabled">In development</span>
+        </div>
+      </div>
+
+      <div class="major-card">
+        <div class="major-head">
+          <div>
+            <div class="major-name">PHOENIX</div>
+            <div class="major-role">Windows Optimization</div>
+          </div>
+          <span class="major-status status-dev">In development</span>
+        </div>
+        <p class="major-desc">
+          A modular, PowerShell-based Windows optimization tool —
+          clean layered architecture with a core runtime, UI, logging,
+          feature modules, and a rollback engine, built stage by stage
+          rather than as one script that does everything.
+        </p>
+        <div class="major-tags">
+          <span class="p-tag">PowerShell</span>
+          <span class="p-tag">Windows</span>
+          <span class="p-tag">Tooling</span>
+        </div>
+        <div class="major-links">
+          <!-- PLACEHOLDER: add real GitHub / demo links -->
+          <span class="major-link disabled">GitHub — add link</span>
+          <span class="major-link disabled">In development</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section-label" style="margin-top:8px;">Ongoing &amp; exploration</div>
+
     <div class="projects-grid fade-up">
 
       <div class="project-card">
@@ -1569,6 +2258,60 @@
         </div>
       </div>
 
+    </div>
+
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ========================
+       MUSIC
+       PLACEHOLDER DATA — see the `musicTracks` array in the
+       JS below. Replace title/artist/url with real tracks.
+       No audio files are embedded; each card links out to
+       the streaming service of your choice.
+  ======================== -->
+  <section class="section" id="music">
+
+    <div class="fade-up">
+      <div class="section-label">Some music</div>
+      <h2 class="big-title">
+        What's been on<br>
+        <span class="muted">repeat lately.</span>
+      </h2>
+    </div>
+
+    <div class="scroll-hint fade-up">← scroll →</div>
+    <div class="scroll-row-wrap fade-up">
+      <div class="scroll-row" id="musicGrid">
+        <!-- populated by JS from musicTracks -->
+      </div>
+    </div>
+
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ========================
+       GAMES
+       PLACEHOLDER DATA — see the `gamesList` array in the
+       JS below. Replace title/platform/note/url with real games.
+  ======================== -->
+  <section class="section" id="games">
+
+    <div class="fade-up">
+      <div class="section-label">Some games</div>
+      <h2 class="big-title">
+        What I play<br>
+        <span class="muted">when I'm not building.</span>
+      </h2>
+    </div>
+
+    <div class="scroll-hint fade-up">← scroll →</div>
+    <div class="scroll-row-wrap fade-up">
+      <div class="scroll-row" id="gamesGrid">
+        <!-- populated by JS from gamesList -->
+      </div>
     </div>
 
   </section>
@@ -1813,6 +2556,8 @@
       const t = document.getElementById('heroTime');
       if (d) d.textContent = date;
       if (t) t.textContent = time;
+      const ns = document.getElementById('nowSynced');
+      if (ns) ns.textContent = `${date}, ${time}`;
     }
     updateMeta();
     setInterval(updateMeta, 1000);
@@ -1825,8 +2570,9 @@
     const items = [
       'Builder', 'Python', 'AI Systems', 'Automation',
       'Systems Thinker', 'Experimenter', 'Problem Solver',
-      'Jarvis', 'LLMs', 'Lifelong Learner', 'Creator',
-      'Cybersecurity', 'Workflow Design', 'Open Source'
+      'Jarvis', 'Orion', 'Sentinel', 'Phoenix', 'LLMs',
+      'Lifelong Learner', 'Creator', 'Windows Tooling',
+      'Workflow Design', 'Open Source'
     ];
 
     const track = document.getElementById('marqueeTrack');
@@ -1837,6 +2583,200 @@
       el.innerHTML = `<span class="marquee-dot"></span>${item}`;
       track.appendChild(el);
     });
+
+    // ==========================================================
+    // MUSIC — EDIT THIS ARRAY WITH YOUR REAL TRACKS
+    // ----------------------------------------------------------
+    // Each entry is one line: { title: '...', artist: '...', url: '...', art: '' }
+    //   title  -> song name, in quotes
+    //   artist -> artist name, in quotes
+    //   url    -> the Spotify / YouTube Music link for that track
+    //   art    -> OPTIONAL direct image URL for album art. Leave
+    //             as '' (empty) to auto-generate a gold vinyl
+    //             label with the track's first letter instead.
+    // Add more rows by copying a whole line and adding a comma
+    // after the row above it. Delete rows the same way.
+    // ==========================================================
+    const musicTracks = [
+      { title: '505', artist: 'Arctic Monkeys', url: 'https://open.spotify.com/search/505%20Arctic%20Monkeys', art: 'assets/music/505.jpg' },
+      { title: 'After Hours', artist: 'The Weeknd', url: 'https://open.spotify.com/search/After%20Hours%20The%20Weeknd', art: 'assets/music/after-hours.jpg' },
+      { title: 'Another Love', artist: 'Tom Odell', url: 'https://open.spotify.com/search/Another%20Love%20Tom%20Odell', art: 'assets/music/another-love.jpg' },
+      { title: 'Apocalypse', artist: 'Cigarettes After Sex', url: 'https://open.spotify.com/search/Apocalypse%20Cigarettes%20After%20Sex', art: 'assets/music/apocalypse.jpg' },
+      { title: 'Do I Wanna Know?', artist: 'Arctic Monkeys', url: 'https://open.spotify.com/search/Do%20I%20Wanna%20Know%20Arctic%20Monkeys', art: 'assets/music/do-i-wanna-know.jpg' },
+      { title: 'Let Her Go', artist: 'Passenger', url: 'https://open.spotify.com/search/Let%20Her%20Go%20Passenger', art: 'assets/music/let-her-go.jpg' },
+      { title: 'Memory Reboot', artist: 'VØJ & Narvent', url: 'https://open.spotify.com/search/Memory%20Reboot%20VOJ%20Narvent', art: 'assets/music/memory-reboot.jpg' },
+      { title: 'Night Changes', artist: 'One Direction', url: 'https://open.spotify.com/search/Night%20Changes%20One%20Direction', art: 'assets/music/night-changes.jpg' },
+      { title: 'Starboy', artist: 'The Weeknd', url: 'https://open.spotify.com/search/Starboy%20The%20Weeknd', art: 'assets/music/starboy.jpg' },
+      { title: 'Summertime Sadness', artist: 'Lana Del Rey', url: 'https://open.spotify.com/search/Summertime%20Sadness%20Lana%20Del%20Rey', art: 'assets/music/summertime-sadness.jpg' },
+      { title: 'Sweater Weather', artist: 'The Neighbourhood', url: 'https://open.spotify.com/search/Sweater%20Weather%20The%20Neighbourhood', art: 'assets/music/sweater-weather.jpg' },
+      { title: 'The Hills', artist: 'The Weeknd', url: 'https://open.spotify.com/search/The%20Hills%20The%20Weeknd', art: 'assets/music/the-hills.jpg' }
+    ];
+
+    const musicGrid = document.getElementById('musicGrid');
+    if (musicGrid) {
+      musicTracks.forEach(t => {
+        const a = document.createElement('a');
+        a.className = 'vinyl-card';
+        a.href = t.url;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        const initial = (t.title || '?').trim().charAt(0).toUpperCase() || '♪';
+        const labelHtml = t.art
+          ? `<img src="${t.art}" alt="">`
+          : initial;
+        a.innerHTML = `
+          <div class="vinyl-disc">
+            <div class="vinyl-label">${labelHtml}</div>
+          </div>
+          <div class="vinyl-title">${t.title}</div>
+          <div class="vinyl-artist">${t.artist}</div>
+          <span class="vinyl-link">Listen ↗</span>
+        `;
+        musicGrid.appendChild(a);
+      });
+    }
+
+    // ==========================================================
+    // GAMES — EDIT THIS ARRAY WITH YOUR REAL GAMES
+    // ----------------------------------------------------------
+    // Each entry: { title: '...', platform: '...', note: '...', url: '...', art: '' }
+    //   title    -> game name
+    //   platform -> PC / PS5 / Switch / etc — shown as a badge
+    //   note     -> OPTIONAL one-line personal comment
+    //   url      -> store or official page link
+    //   art      -> OPTIONAL direct cover-art image URL. Leave
+    //               as '' to show a plain platform-labeled tile.
+    // ==========================================================
+    const gamesList = [
+      {
+        title: 'Assassin\'s Creed IV: Black Flag',
+        platform: 'PC',
+        note: 'Pirates, parkour, sea shanties. Still one of Assassin\'s Creed\'s best.',
+        url: 'https://store.steampowered.com/search/?term=Assassin%27s%20Creed%20IV%20Black%20Flag',
+        art: 'assets/games/black-flag.jpg'
+      },
+      {
+        title: 'Cyberpunk 2077',
+        platform: 'PC',
+        note: 'Night City, great atmosphere, and one of the best redemption arcs in gaming.',
+        url: 'https://store.steampowered.com/app/1091500/Cyberpunk_2077/',
+        art: 'assets/games/cyberpunk-2077.jpg'
+      },
+      {
+        title: 'Detroit: Become Human',
+        platform: 'PC',
+        note: 'Choices actually matter. One of those games you keep thinking about afterward.',
+        url: 'https://store.steampowered.com/app/1222140/Detroit_Become_Human/',
+        art: 'assets/games/detroit-become-human.jpg'
+      },
+      {
+        title: 'Elden Ring',
+        platform: 'PC',
+        note: 'Brutal, beautiful, massive. Getting destroyed has rarely looked this good.',
+        url: 'https://store.steampowered.com/app/1245620/ELDEN_RING/',
+        art: 'assets/games/elden-ring.jpg'
+      },
+      {
+        title: 'Forza Horizon 5',
+        platform: 'PC',
+        note: 'Cars, speed, and a map built for disappearing for a few hours.',
+        url: 'https://store.steampowered.com/app/1551360/Forza_Horizon_5/',
+        art: 'assets/games/forza-horizon-5.jpg'
+      },
+      {
+        title: 'Ghost of Tsushima',
+        platform: 'PC',
+        note: 'Sword fights, wind, and ridiculous scenery. Pure cinematic calm and chaos.',
+        url: 'https://store.steampowered.com/app/2215430/Ghost_of_Tsushima_DIRECTORS_CUT/',
+        art: 'assets/games/ghost-of-tsushima.jpg'
+      },
+      {
+        title: 'God of War',
+        platform: 'PC',
+        note: 'Heavy combat, incredible storytelling, and Kratos trying very hard to be a dad.',
+        url: 'https://store.steampowered.com/app/1593500/God_of_War/',
+        art: 'assets/games/god-of-war.jpg'
+      },
+      {
+        title: 'Grand Theft Auto V',
+        platform: 'PC',
+        note: 'Somehow still alive after all these years. Los Santos never really gets old.',
+        url: 'https://store.steampowered.com/app/271590/Grand_Theft_Auto_V_Legacy/',
+        art: 'assets/games/gta-v.jpg'
+      },
+      {
+        title: 'Minecraft',
+        platform: 'PC',
+        note: 'The game where five minutes of building becomes five hours.',
+        url: 'https://www.minecraft.net/',
+        art: 'assets/games/minecraft.jpg'
+      },
+      {
+        title: 'Need for Speed: Most Wanted',
+        platform: 'PC',
+        note: 'Blacklist, police chases, that soundtrack. Peak racing-game nostalgia.',
+        url: 'https://www.ea.com/games/need-for-speed',
+        art: 'assets/games/nfs-most-wanted.jpg'
+      },
+      {
+        title: 'Red Dead Redemption 2',
+        platform: 'PC',
+        note: 'A ridiculously detailed world and one of gaming\'s best stories. Easy top tier.',
+        url: 'https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/',
+        art: 'assets/games/rdr2.jpg'
+      },
+      {
+        title: 'Resident Evil 4',
+        platform: 'PC',
+        note: 'Tense, polished, and endlessly replayable. Survival horror done right.',
+        url: 'https://store.steampowered.com/app/2050650/Resident_Evil_4/',
+        art: 'assets/games/resident-evil-4.jpg'
+      },
+      {
+        title: 'Marvel\'s Spider-Man Remastered',
+        platform: 'PC',
+        note: 'Sometimes the mission can wait. Swinging through Manhattan is the mission.',
+        url: 'https://store.steampowered.com/app/1817070/Marvels_SpiderMan_Remastered/',
+        art: 'assets/games/spiderman.jpg'
+      },
+      {
+        title: 'VALORANT',
+        platform: 'PC',
+        note: 'Clean gunplay, bad decisions, and one more match somehow becoming six.',
+        url: 'https://playvalorant.com/',
+        art: 'assets/games/valorant.jpg'
+      },
+      {
+        title: 'The Witcher 3: Wild Hunt',
+        platform: 'PC',
+        note: 'Still one of the standards for open-world RPGs. The side quests alone are absurd.',
+        url: 'https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt/',
+        art: 'assets/games/witcher-3.jpg'
+      }
+    ];
+
+    const gamesGrid = document.getElementById('gamesGrid');
+    if (gamesGrid) {
+      gamesList.forEach(g => {
+        const el = document.createElement('div');
+        el.className = 'poster-card';
+        const artHtml = g.art
+          ? `<img src="${g.art}" alt="">`
+          : `<span class="poster-fallback">${g.platform || 'PC'}</span>`;
+        el.innerHTML = `
+          <div class="poster-art">
+            ${artHtml}
+            <span class="poster-badge">${g.platform || ''}</span>
+          </div>
+          <div class="poster-body">
+            <div class="poster-title">${g.title}</div>
+            <div class="poster-note">${g.note || ''}</div>
+            <a class="poster-link" href="${g.url}" target="_blank" rel="noopener">Store page ↗</a>
+          </div>
+        `;
+        gamesGrid.appendChild(el);
+      });
+    }
 
     // INTERSECTION OBSERVER
     const io = new IntersectionObserver(entries => {
@@ -1881,6 +2821,42 @@
     const statsEl = document.querySelector('.stat-block');
     if (statsEl) cntObs.observe(statsEl);
 
+    // ==========================================================
+    // PROVERB CARD — click to cycle through short CJK proverbs.
+    // Add/edit entries freely; native/translit/meaning/lang.
+    // ==========================================================
+    const proverbs = [
+      { native: '七転び八起き', translit: 'nana korobi ya oki — Japanese', meaning: '"Fall down seven times, stand up eight."' },
+      { native: '千里之行，始于足下', translit: 'qiān lǐ zhī xíng, shǐ yú zú xià — Chinese', meaning: '"A journey of a thousand miles begins with a single step."' },
+      { native: '好きこそ物の上手なれ', translit: 'suki koso mono no jouzu nare — Japanese', meaning: '"What you love, you\'ll get good at."' },
+      { native: '学而不思则罔', translit: 'xué ér bù sī zé wǎng — Chinese', meaning: '"Learning without thought is labor lost." — Confucius' },
+      { native: '案ずるより産むが易し', translit: 'anzuru yori umu ga yasushi — Japanese', meaning: '"Doing it is easier than worrying about it."' }
+    ];
+    let proverbIndex = 0;
+    const proverbCard = document.getElementById('proverbCard');
+    const pNative = document.getElementById('proverbNative');
+    const pTranslit = document.getElementById('proverbTranslit');
+    const pMeaning = document.getElementById('proverbMeaning');
+
+    function showProverb(i) {
+      const p = proverbs[i % proverbs.length];
+      pNative.textContent = p.native;
+      pTranslit.textContent = p.translit;
+      pMeaning.textContent = p.meaning;
+    }
+
+    function nextProverb() {
+      proverbIndex = (proverbIndex + 1) % proverbs.length;
+      showProverb(proverbIndex);
+    }
+
+    if (proverbCard) {
+      proverbCard.addEventListener('click', nextProverb);
+      proverbCard.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); nextProverb(); }
+      });
+    }
+
     // CONSOLE EASTER EGG
     const overlay   = document.getElementById('consoleOverlay');
     const cBody     = document.getElementById('cBody');
@@ -1895,6 +2871,8 @@
         '<span style="color:var(--gold)">Commands:</span>',
         '  whoami   — who is CRIXX?',
         '  jarvis   — about the flagship',
+        '  projects — orion, sentinel, phoenix',
+        '  proverb  — a random one from the field log',
         '  stack    — what I use',
         '  mission  — current objective',
         '  quote    — something worth reading',
@@ -1916,6 +2894,13 @@
         'AI + Automation + Knowledge management.',
         'Every version better than the last.',
         'Status: active development.',
+        ' '
+      ],
+      projects: [
+        '<span style="color:var(--gold)">Orion</span> — search / retrieval engine. In development.',
+        '<span style="color:var(--gold)">Sentinel</span> — Windows system intelligence. In development.',
+        '<span style="color:var(--gold)">Phoenix</span> — modular Windows optimization tool. In development.',
+        'Scroll to the Projects section for the full picture.',
         ' '
       ],
       stack: [
@@ -1969,6 +2954,14 @@
       addLine(`$ ${raw}`, 'dim');
       if (cmd === 'clear') { cBody.innerHTML = ''; return; }
       if (cmd === 'exit')  { closeConsole(); return; }
+      if (cmd === 'proverb') {
+        const p = proverbs[Math.floor(Math.random() * proverbs.length)];
+        addLine(`<span style="color:var(--gold)">${p.native}</span>`);
+        addLine(`${p.translit}`);
+        addLine(`${p.meaning}`);
+        addLine(' ');
+        return;
+      }
       if (cmds[cmd]) {
         cmds[cmd].forEach(l => addLine(l));
       } else if (cmd === '') {
