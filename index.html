@@ -1943,7 +1943,254 @@
     }
     @media (prefers-reduced-motion:reduce) { .nexa-trigger:hover { transform:none; } }
 
-  </style>
+  
+
+    /* ========================
+       CRIXX V2.3 — HERO COMPOSITION FIX
+       Desktop composition follows the editorial split layout:
+       type block and image share one visual baseline; metadata stays
+       on the text half instead of stretching under the portrait.
+    ======================== */
+    @media (min-width: 901px) {
+      .hero {
+        min-height: 100svh;
+        height: 100svh;
+        grid-template-columns: 47% 53%;
+        overflow: hidden;
+      }
+
+      .hero-left {
+        min-width: 0;
+        height: 100%;
+        justify-content: center;
+        align-items: flex-start;
+        padding: clamp(112px, 12vh, 150px) clamp(44px, 4.8vw, 82px) clamp(108px, 12vh, 150px);
+      }
+
+      .hero-left::before {
+        left: clamp(44px, 4.8vw, 82px);
+        top: clamp(82px, 9.5vh, 118px);
+        width: 48px;
+      }
+
+      .hero-status {
+        margin: 0 0 clamp(22px, 2.6vh, 32px);
+        font-size: 10px;
+      }
+
+      .hero-name {
+        width: 100%;
+        max-width: 760px;
+        font-size: clamp(126px, 13.6vw, 228px);
+        line-height: .76;
+        letter-spacing: -.035em;
+        margin: 0 0 clamp(24px, 3vh, 36px);
+      }
+
+      .hero-name .line1 {
+        font-size: .22em;
+        line-height: .95;
+        margin: 0 0 clamp(14px, 1.7vh, 20px);
+        letter-spacing: .01em;
+      }
+
+      .hero-word {
+        white-space: nowrap;
+        display: block;
+        width: fit-content;
+        max-width: 100%;
+      }
+
+      .hero-word::after {
+        left: 0;
+        right: 0;
+        bottom: -12px;
+      }
+
+      .hero-tagline {
+        max-width: 520px;
+        margin: 0 0 clamp(26px, 3.2vh, 38px);
+        font-size: clamp(16px, 1.15vw, 20px);
+      }
+
+      .hero-actions {
+        margin: 0;
+      }
+
+      .hero-right {
+        height: 100%;
+        min-height: 0;
+      }
+
+      .hero-right img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 18%;
+      }
+
+      .hero-right::after {
+        background: linear-gradient(to right, var(--black) 0%, rgba(8,8,9,.84) 7%, rgba(8,8,9,.28) 18%, transparent 33%);
+      }
+
+      .hero-meta {
+        left: 0;
+        right: auto;
+        width: 47%;
+        min-height: 68px;
+        padding: 18px clamp(44px, 4.8vw, 82px);
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        justify-content: space-between;
+        gap: 18px;
+        background: rgba(8,8,9,.88);
+        border-right: 1px solid var(--border);
+      }
+
+      .meta-item {
+        white-space: nowrap;
+      }
+    }
+
+    /* Keep the wordmark literal. The old blink made screenshots randomly
+       show CRIXX without its underscore. */
+    .nav-logo span {
+      animation: none !important;
+      opacity: 1 !important;
+    }
+
+    /* Laptop widths need slightly less heroic type so nothing collides. */
+    @media (min-width: 901px) and (max-width: 1250px) {
+      .hero { grid-template-columns: 48% 52%; }
+      .hero-name { font-size: clamp(112px, 13.2vw, 178px); }
+      .hero-left { padding-left: 40px; padding-right: 34px; }
+      .hero-left::before { left: 40px; }
+      .hero-meta { width: 48%; padding-left: 40px; padding-right: 34px; grid-template-columns: repeat(2, auto); row-gap: 6px; }
+    }
+
+    /* Mobile: keep the original stacked language but fix the giant empty
+       gap and align the copy to the same rhythm as desktop. */
+    @media (max-width: 900px) {
+      .hero-left {
+        justify-content: center;
+        padding-top: 104px;
+        padding-bottom: 76px;
+      }
+      .hero-status { margin-bottom: 22px; }
+      .hero-name { margin-bottom: 26px; }
+      .hero-name .line1 { margin-bottom: 12px; }
+      .hero-tagline { margin-bottom: 30px; }
+    }
+
+    /* ========================
+       CRIXX V2.4 — HERO ALIGNMENT CLEANUP
+       Keep the name dominant, keep the underscore attached, and remove
+       the boxed feeling from the bottom metadata.
+    ======================== */
+    @media (min-width: 901px) {
+      .hero-left {
+        padding-top: clamp(100px, 10vh, 124px);
+        padding-bottom: clamp(104px, 11vh, 132px);
+      }
+
+      .hero-name {
+        max-width: none;
+        width: auto;
+        font-size: clamp(138px, 11.2vw, 194px);
+        line-height: .78;
+        letter-spacing: -.045em;
+        margin-bottom: clamp(34px, 3.8vh, 46px);
+      }
+
+      .hero-name .line1 {
+        font-size: .24em;
+        margin-bottom: 14px;
+        letter-spacing: .015em;
+      }
+
+      .hero-word {
+        position: relative;
+        display: inline-block;
+        width: auto;
+        max-width: 100%;
+        white-space: nowrap;
+        padding-right: .42em;
+      }
+
+      .hero-word::after {
+        display: none !important;
+      }
+
+      .hero-underscore {
+        position: absolute;
+        width: .34em;
+        height: .095em;
+        right: .01em;
+        bottom: .02em;
+        background: currentColor;
+        border-radius: 1px;
+      }
+
+      .hero-tagline {
+        max-width: 560px;
+        margin-top: 0;
+        margin-bottom: 34px;
+        font-size: clamp(17px, 1.12vw, 20px);
+      }
+
+      .hero-meta {
+        width: 47%;
+        min-height: 0;
+        padding: 0 clamp(44px, 4.8vw, 82px) 24px;
+        grid-template-columns: repeat(4, minmax(0, auto));
+        justify-content: space-between;
+        align-items: end;
+        gap: 14px;
+        background: transparent;
+        backdrop-filter: none;
+        border-top: 0;
+        border-right: 0;
+        pointer-events: none;
+      }
+
+      .meta-item {
+        font-size: 9px;
+        letter-spacing: .14em;
+        color: rgba(123,123,133,.72);
+      }
+    }
+
+    @media (min-width: 901px) and (max-width: 1250px) {
+      .hero-name { font-size: clamp(118px, 10.4vw, 156px); }
+      .hero-word { padding-right: .38em; }
+      .hero-meta {
+        width: 48%;
+        grid-template-columns: repeat(4, minmax(0, auto));
+        padding-left: 40px;
+        padding-right: 34px;
+        gap: 8px;
+      }
+      .meta-item { font-size: 8px; }
+    }
+
+    @media (max-width: 900px) {
+      .hero-word {
+        position: relative;
+        display: inline-block;
+        padding-right: .42em;
+      }
+      .hero-word::after { display:none !important; }
+      .hero-underscore {
+        position:absolute;
+        width:.34em;
+        height:.095em;
+        right:.01em;
+        bottom:.02em;
+        background:currentColor;
+      }
+    }
+
+</style>
 </head>
 <body>
 
@@ -1982,7 +2229,7 @@
 
       <h1 class="hero-name">
         <span class="line1">I am</span>
-        <span class="gold hero-word" data-text="CRIXX_">CRIXX_</span>
+        <span class="gold hero-word" aria-label="CRIXX underscore">CRIXX<span class="hero-underscore" aria-hidden="true"></span></span>
       </h1>
 
       <p class="hero-tagline">
