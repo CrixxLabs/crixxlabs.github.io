@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CRIXX — Builder. Thinker. Experimenter.</title>
-  <meta name="description" content="CRIXX / CrixxLabs — a builder working on AI systems, automation, and Windows tooling. Home of Jarvis, Orion, Sentinel, and Phoenix." />
+  <meta name="description" content="CRIXX / CrixxLabs — a personal software lab for AI systems, automation, search, Windows tooling, and experiments. Home of Jarvis, ORION, SENTINEL, and PHOENIX." />
   <meta name="author" content="CRIXX" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://crixxlabs.qd.je/" />
@@ -16,14 +16,14 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="CRIXX" />
   <meta property="og:title" content="CRIXX — Builder. Thinker. Experimenter." />
-  <meta property="og:description" content="AI systems, automation, and Windows tooling. Home of Jarvis, Orion, Sentinel, and Phoenix." />
+  <meta property="og:description" content="A personal software lab for AI systems, automation, search, Windows tooling, and experiments. Home of Jarvis, ORION, SENTINEL, and PHOENIX." />
   <meta property="og:url" content="https://crixxlabs.qd.je/" />
   <meta property="og:image" content="https://crixxlabs.qd.je/assets/pfp.jpeg" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="CRIXX — Builder. Thinker. Experimenter." />
-  <meta name="twitter:description" content="AI systems, automation, and Windows tooling. Home of Jarvis, Orion, Sentinel, and Phoenix." />
+  <meta name="twitter:description" content="A personal software lab for AI systems, automation, search, Windows tooling, and experiments. Home of Jarvis, ORION, SENTINEL, and PHOENIX." />
   <meta name="twitter:image" content="https://crixxlabs.qd.je/assets/pfp.jpeg" />
   <meta name="twitter:site" content="@CrixxLabs" />
 
@@ -1172,6 +1172,24 @@
        RESPONSIVE
     ======================== */
     @media (max-width: 900px) {
+      .nav-links.mobile-open {
+        display: flex;
+        position: absolute;
+        top: 64px;
+        left: 16px;
+        right: 16px;
+        padding: 18px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        background: rgba(8,8,9,0.97);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        box-shadow: 0 20px 60px rgba(0,0,0,.45);
+        backdrop-filter: blur(20px);
+      }
+      .nav-links.mobile-open a { display:block; padding:12px 10px; }
+      .nav-links.mobile-open .nav-cta { text-align:center; margin-top:6px; }
       .hero { grid-template-columns: 1fr; min-height: auto; }
       .hero-right { height: 50vh; }
       .hero-right::after {
@@ -1710,6 +1728,88 @@
       outline: 2px solid var(--gold);
       outline-offset: 2px;
     }
+
+
+    /* ========================
+       V2 POLISH — PROJECT PROOF / NEXA / COMMAND PALETTE
+    ======================== */
+    .major-card { isolation:isolate; }
+    .major-card::after {
+      content:''; position:absolute; inset:0; pointer-events:none; opacity:0;
+      background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%), rgba(212,168,83,.055), transparent 52%);
+      transition:opacity 220ms var(--ease); z-index:-1;
+    }
+    .major-card:hover::after { opacity:1; }
+    .major-proof { display:flex; flex-wrap:wrap; gap:7px; margin:-2px 0 2px; }
+    .major-proof span {
+      font-family:var(--mono); font-size:10px; color:var(--grey1);
+      border:1px solid var(--border); background:rgba(8,8,9,.55);
+      border-radius:5px; padding:5px 8px;
+    }
+    .major-phoenix { background:linear-gradient(145deg,var(--card),rgba(212,168,83,.035)); }
+    .stat { position:relative; overflow:hidden; }
+    .stat::after { content:''; position:absolute; inset:auto -30% -80% auto; width:130px; height:130px; border-radius:50%; background:radial-gradient(circle,rgba(212,168,83,.07),transparent 68%); opacity:0; transition:opacity 200ms; }
+    .stat:hover::after { opacity:1; }
+
+    .nexa-trigger {
+      position:fixed; right:24px; bottom:22px; z-index:420; display:flex; align-items:center; gap:9px;
+      padding:11px 14px; border:1px solid var(--gold-border); border-radius:7px;
+      background:rgba(13,13,15,.92); color:var(--gold); backdrop-filter:blur(14px);
+      font:500 11px/1 var(--mono); letter-spacing:.08em; box-shadow:0 12px 35px rgba(0,0,0,.35);
+      transition:180ms var(--ease);
+    }
+    .nexa-trigger:hover { background:var(--gold-dim); transform:translateY(-2px); }
+    .nexa-led { width:6px; height:6px; border-radius:50%; background:var(--green); box-shadow:0 0 9px rgba(74,222,128,.75); display:inline-block; flex:0 0 auto; }
+    .nexa-panel {
+      position:fixed; right:24px; bottom:72px; z-index:419; width:min(390px,calc(100vw - 32px));
+      background:rgba(13,13,15,.97); border:1px solid var(--border2); border-radius:14px;
+      box-shadow:0 28px 80px rgba(0,0,0,.68); backdrop-filter:blur(22px); overflow:hidden;
+      opacity:0; transform:translateY(12px) scale(.985); pointer-events:none; transition:190ms var(--ease);
+    }
+    .nexa-panel.open { opacity:1; transform:none; pointer-events:auto; }
+    .nexa-head { display:flex; align-items:flex-start; justify-content:space-between; padding:17px 18px 14px; border-bottom:1px solid var(--border); }
+    .nexa-name { color:var(--white); font:600 13px var(--mono); letter-spacing:.08em; }
+    .nexa-role { color:var(--grey2); font:10px var(--mono); letter-spacing:.05em; margin-top:5px; display:flex; align-items:center; gap:7px; }
+    .nexa-close { color:var(--grey2); border:1px solid var(--border); border-radius:4px; padding:4px 7px; font:10px var(--mono); }
+    .nexa-close:hover { color:var(--white); border-color:var(--border2); }
+    .nexa-log { min-height:235px; max-height:330px; overflow:auto; padding:18px; display:flex; flex-direction:column; gap:12px; }
+    .nexa-msg { font-size:13px; line-height:1.65; color:var(--grey1); max-width:92%; white-space:pre-line; }
+    .nexa-msg.system { color:var(--grey1); }
+    .nexa-msg.user { align-self:flex-end; color:var(--white); background:var(--card); border:1px solid var(--border); padding:8px 10px; border-radius:9px 9px 2px 9px; }
+    .nexa-msg strong { color:var(--white); }
+    .nexa-msg .gold { color:var(--gold); font-family:var(--mono); }
+    .nexa-actions { display:flex; flex-wrap:wrap; gap:7px; }
+    .nexa-actions button { color:var(--grey1); border:1px solid var(--border); background:var(--black); border-radius:5px; padding:6px 9px; font:10px var(--mono); }
+    .nexa-actions button:hover { color:var(--gold); border-color:var(--gold-border); background:var(--gold-dim); }
+    .nexa-input-row { display:flex; align-items:center; gap:9px; border-top:1px solid var(--border); padding:12px 15px; color:var(--gold); font-family:var(--mono); }
+    .nexa-input-row input { flex:1; min-width:0; border:0; outline:0; background:transparent; color:var(--white); font:12px var(--mono); }
+    .nexa-input-row input::placeholder { color:var(--grey3); }
+    .nexa-input-row button { color:var(--gold); font:13px var(--mono); padding:4px; }
+    .nexa-foot { padding:0 15px 11px; color:var(--grey3); font:9px var(--mono); letter-spacing:.03em; }
+
+    .palette-overlay { position:fixed; inset:0; z-index:850; background:rgba(0,0,0,.64); backdrop-filter:blur(8px); display:flex; justify-content:center; align-items:flex-start; padding:14vh 18px 18px; opacity:0; pointer-events:none; transition:150ms var(--ease); }
+    .palette-overlay.open { opacity:1; pointer-events:auto; }
+    .palette { width:min(620px,100%); background:#0d0d0f; border:1px solid var(--border2); border-radius:14px; box-shadow:0 28px 90px rgba(0,0,0,.75); overflow:hidden; transform:translateY(-8px); transition:150ms var(--ease); }
+    .palette-overlay.open .palette { transform:none; }
+    .palette-top { display:flex; justify-content:space-between; padding:13px 16px; color:var(--gold); font:10px var(--mono); letter-spacing:.09em; border-bottom:1px solid var(--border); }
+    .palette-top kbd { color:var(--grey2); font:9px var(--mono); border:1px solid var(--border); padding:2px 6px; border-radius:4px; }
+    .palette-input { width:100%; border:0; outline:0; background:transparent; color:var(--white); padding:17px 18px; font:14px var(--mono); border-bottom:1px solid var(--border); }
+    .palette-input::placeholder { color:var(--grey3); }
+    .palette-list { padding:7px; max-height:340px; overflow:auto; }
+    .palette-item { width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:11px 12px; border-radius:7px; color:var(--grey1); text-align:left; }
+    .palette-item small { color:var(--grey3); font:9px var(--mono); }
+    .palette-item.active,.palette-item:hover { background:var(--card); color:var(--white); }
+    .palette-item.active::before { content:'>'; color:var(--gold); font-family:var(--mono); margin-right:7px; }
+    .palette-hint { padding:10px 16px 12px; border-top:1px solid var(--border); color:var(--grey3); font:9px var(--mono); }
+
+    @media (max-width:600px) {
+      .nexa-trigger { right:14px; bottom:14px; }
+      .nexa-panel { right:8px; bottom:62px; width:calc(100vw - 16px); max-height:72vh; }
+      .nexa-log { max-height:43vh; }
+      .palette-overlay { padding-top:10vh; }
+    }
+    @media (prefers-reduced-motion:reduce) { .nexa-trigger:hover { transform:none; } }
+
   </style>
 </head>
 <body>
@@ -1725,6 +1825,7 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="record.html">Record</a></li>
       <li><a href="#music">Music</a></li>
       <li><a href="#games">Games</a></li>
       <li><a href="#connect" class="nav-cta">Contact</a></li>
@@ -1902,20 +2003,20 @@
 
       <div class="now-card now-featured">
         <div class="now-tag">build</div>
-        <div class="now-value">Teaching Jarvis to actually know me</div>
-        <div class="now-sub">Not autocomplete — memory. Right now I'm elbow-deep in getting a personal AI assistant to stop forgetting who it's talking to, mid-way through a multi-phase stabilization pass.</div>
+        <div class="now-value">Phoenix survived P1 → P20. Now I’m trying to break it.</div>
+        <div class="now-sub">The roadmap is complete. The less glamorous part is happening now: real Windows smoke tests, release hardening, rollback checks, and fixing whatever the test suite didn't catch.</div>
       </div>
 
       <div class="now-card">
         <div class="now-tag">obsession</div>
-        <div class="now-value">Windows, taken apart</div>
-        <div class="now-sub">Started as "why is this so slow." Ended with me rebuilding the optimizer myself. That's Phoenix.</div>
+        <div class="now-value">Three systems, three different problems</div>
+        <div class="now-sub">ORION searches. SENTINEL watches the machine. PHOENIX controls and repairs it. They stay useful on their own — integrations come later.</div>
       </div>
 
       <div class="now-card">
         <div class="now-tag">experiment</div>
-        <div class="now-value">Local AI, small hardware</div>
-        <div class="now-sub">Everyone benchmarks on cards I don't own. I'm finding out what's actually possible on the GPU I do.</div>
+        <div class="now-value">Jarvis, reliability before spectacle</div>
+        <div class="now-sub">Planner, executor, observer, memory, live capability health — less “AI demo”, more figuring out what a personal system needs to stay useful when parts fail.</div>
       </div>
 
       <div class="now-card">
@@ -1971,24 +2072,25 @@
               Personal AI<br><span class="gold">Assistant System</span>
             </div>
             <p class="jarvis-desc">
-              Jarvis is not a demo. It's a long-term personal system
-              I'm building to handle automation, knowledge management,
-              and task execution. Every iteration teaches me something.
-              Every failure improves the next version.
+              Jarvis is not a chatbot demo. It's a long-running personal AI
+              system built around planning, execution, observation, memory,
+              voice, local tools, and real desktop automation. The point is not
+              to make it talk more — it is to make it understand what it can do,
+              act safely, and get better at doing it.
             </p>
           </div>
 
           <div>
             <div class="jarvis-status-block">
               <div class="jarvis-status-label">Current version</div>
-              <div class="jarvis-status-value">v0.x — Active development</div>
-              <div class="jarvis-status-sub">Iteration ongoing</div>
+              <div class="jarvis-status-value">MARK VII — Active development</div>
+              <div class="jarvis-status-sub">Current generation · iteration ongoing</div>
             </div>
             <br>
             <div class="jarvis-status-block">
               <div class="jarvis-status-label">Primary stack</div>
-              <div class="jarvis-status-value">Python · LLM APIs</div>
-              <div class="jarvis-status-sub">Automation + AI hybrid</div>
+              <div class="jarvis-status-value">Python · Multi-model AI</div>
+              <div class="jarvis-status-sub">Planner + Executor + Observer</div>
             </div>
           </div>
         </div>
@@ -2039,28 +2141,28 @@
             <div class="feat-icon">🧠</div>
             <div class="feat-title">AI Integration</div>
             <div class="feat-desc">
-              LLM-powered reasoning and response generation
+              Multi-model reasoning with routing and fallbacks
             </div>
           </div>
           <div class="jarvis-feat">
             <div class="feat-icon">⚙️</div>
             <div class="feat-title">Automation Engine</div>
             <div class="feat-desc">
-              Task automation and workflow management
+              Desktop actions with outcome verification
             </div>
           </div>
           <div class="jarvis-feat">
             <div class="feat-icon">📚</div>
             <div class="feat-title">Knowledge System</div>
             <div class="feat-desc">
-              Personal context and memory management
+              Persistent memory, preferences, and recall
             </div>
           </div>
           <div class="jarvis-feat">
             <div class="feat-icon">🔄</div>
             <div class="feat-title">Iterative Build</div>
             <div class="feat-desc">
-              Continuously evolving — each version better than the last
+              Reliability phases, self-model, and capability awareness
             </div>
           </div>
         </div>
@@ -2091,84 +2193,81 @@
     ============================================= -->
     <div class="majors-grid fade-up">
 
-      <div class="major-card">
+      <div class="major-card major-live" data-project="orion">
         <div class="major-head">
           <div>
             <div class="major-name">ORION</div>
-            <div class="major-role">Search / Retrieval</div>
+            <div class="major-role">Independent Search / Retrieval</div>
           </div>
-          <!-- PLACEHOLDER: if Orion is complete locally but not
-               deployed, change the label below to "Built · Local only" -->
-          <span class="major-status status-dev">In development</span>
+          <span class="major-status status-local">Built · GitHub</span>
         </div>
         <p class="major-desc">
-          An independent, full-stack search engine — a provider-agnostic
-          retrieval layer with a custom ranking core, multiple search
-          verticals, history, and its own API. Built to understand
-          search from the ground up, not to wrap someone else's index.
+          A full-stack search engine with a provider-agnostic retrieval layer,
+          normalized results, ranking, deduplication, multiple search verticals,
+          history, API routes, and a lightweight frontend. Built to understand
+          search as a system instead of hiding behind one provider.
         </p>
+        <div class="major-proof">
+          <span>API</span><span>Ranking</span><span>4 verticals</span><span>V2 intelligence</span>
+        </div>
         <div class="major-tags">
-          <span class="p-tag">Python</span>
-          <span class="p-tag">Retrieval</span>
-          <span class="p-tag">Ranking</span>
-          <span class="p-tag">API</span>
+          <span class="p-tag">Python</span><span class="p-tag">FastAPI</span>
+          <span class="p-tag">Retrieval</span><span class="p-tag">Search</span>
         </div>
         <div class="major-links">
-          <!-- PLACEHOLDER: add real GitHub / demo links -->
-          <span class="major-link disabled">GitHub — add link</span>
-          <span class="major-link disabled">Demo — not public yet</span>
+          <a class="major-link" href="https://github.com/CrixxLabs/ORION" target="_blank" rel="noopener">GitHub ↗</a>
+          <span class="major-link disabled">Public deployment next</span>
         </div>
       </div>
 
-      <div class="major-card">
+      <div class="major-card" data-project="sentinel">
         <div class="major-head">
           <div>
             <div class="major-name">SENTINEL</div>
-            <div class="major-role">System Intelligence</div>
+            <div class="major-role">Windows System Intelligence</div>
           </div>
-          <span class="major-status status-dev">In development</span>
+          <span class="major-status status-dev">Active development</span>
         </div>
         <p class="major-desc">
-          A Windows system intelligence and diagnostics platform —
-          designed to eventually become Jarvis's nervous system,
-          the machine-awareness layer that tells the assistant what's
-          actually happening on the machine it runs on.
+          A Windows telemetry, diagnostics, anomaly, and system-intelligence platform.
+          It collects machine state, preserves history, exposes an API, and is being
+          hardened around failure isolation, trustworthy signals, and a quiet local dashboard.
         </p>
+        <div class="major-proof">
+          <span>Telemetry</span><span>Diagnostics</span><span>History</span><span>Local API</span>
+        </div>
         <div class="major-tags">
-          <span class="p-tag">Windows</span>
-          <span class="p-tag">Diagnostics</span>
-          <span class="p-tag">Systems</span>
+          <span class="p-tag">Python</span><span class="p-tag">Windows</span>
+          <span class="p-tag">Diagnostics</span><span class="p-tag">Systems</span>
         </div>
         <div class="major-links">
-          <!-- PLACEHOLDER: add real GitHub / demo links -->
-          <span class="major-link disabled">GitHub — add link</span>
-          <span class="major-link disabled">In development</span>
+          <span class="major-link disabled">Repository after release audit</span>
         </div>
       </div>
 
-      <div class="major-card">
+      <div class="major-card major-phoenix" data-project="phoenix">
         <div class="major-head">
           <div>
             <div class="major-name">PHOENIX</div>
-            <div class="major-role">Windows Optimization</div>
+            <div class="major-role">Windows System Toolkit</div>
           </div>
-          <span class="major-status status-dev">In development</span>
+          <span class="major-status status-dev">Release hardening</span>
         </div>
         <p class="major-desc">
-          A modular, PowerShell-based Windows optimization tool —
-          clean layered architecture with a core runtime, UI, logging,
-          feature modules, and a rollback engine, built stage by stage
-          rather than as one script that does everything.
+          A manifest-driven .NET Windows toolkit for inspecting, configuring, repairing,
+          and maintaining a PC with risk-aware execution, verification, checkpoints,
+          desired-state tracking, and rollback. P1 → P20 is complete; real-machine
+          acceptance testing is now finding the bugs unit tests can't.
         </p>
+        <div class="major-proof">
+          <span>23 tweaks</span><span>8 controls</span><span>10 tools</span><span>5 repairs</span><span>143 tests</span>
+        </div>
         <div class="major-tags">
-          <span class="p-tag">PowerShell</span>
-          <span class="p-tag">Windows</span>
-          <span class="p-tag">Tooling</span>
+          <span class="p-tag">C# / .NET 8</span><span class="p-tag">Windows</span>
+          <span class="p-tag">Manifests</span><span class="p-tag">Rollback</span>
         </div>
         <div class="major-links">
-          <!-- PLACEHOLDER: add real GitHub / demo links -->
-          <span class="major-link disabled">GitHub — add link</span>
-          <span class="major-link disabled">In development</span>
+          <span class="major-link disabled">GitHub after release hardening</span>
         </div>
       </div>
 
@@ -2240,21 +2339,20 @@
 
       <div class="project-card">
         <div class="p-header">
-          <span class="p-name">[Next Project]</span>
+          <span class="p-name">Side Quest Queue</span>
           <span class="p-badge badge-coming">Coming</span>
         </div>
         <p class="p-desc">
-          There's always something next.
-          I don't know what it is yet — and that's intentional.
-          The best problems usually find me before I find them.
+          A backlog of standalone tools with one rule: they must be useful even if
+          none of my other projects existed. Build the product first. Integrate later.
         </p>
         <div class="p-comment">
-          the blank slot is not a placeholder. it's a promise.
+          if it only makes sense as a feature, it does not get its own repo.
         </div>
         <div class="p-tags">
-          <span class="p-tag">Unknown</span>
-          <span class="p-tag">Interesting</span>
-          <span class="p-tag">Probably difficult</span>
+          <span class="p-tag">Standalone</span>
+          <span class="p-tag">Free-first</span>
+          <span class="p-tag">Useful</span>
         </div>
       </div>
 
@@ -2477,6 +2575,49 @@
       // type 'crixx' anywhere
     </div>
   </footer>
+
+  <!-- ========================
+       NEXA — SITE INTERFACE
+  ======================== -->
+  <button class="nexa-trigger" id="nexaTrigger" aria-label="Open NEXA site interface" aria-expanded="false">
+    <span class="nexa-led"></span><span>NEXA_</span>
+  </button>
+
+  <aside class="nexa-panel" id="nexaPanel" aria-hidden="true" aria-label="NEXA site interface">
+    <div class="nexa-head">
+      <div>
+        <div class="nexa-name">NEXA_</div>
+        <div class="nexa-role"><span class="nexa-led"></span> site interface</div>
+      </div>
+      <button class="nexa-close" id="nexaClose" aria-label="Close NEXA">esc</button>
+    </div>
+    <div class="nexa-log" id="nexaLog" aria-live="polite">
+      <div class="nexa-msg system">You found the interface. Ask about CRIXX, a project, or how to reach me.</div>
+      <div class="nexa-actions">
+        <button data-nexa="projects">projects</button>
+        <button data-nexa="phoenix">phoenix</button>
+        <button data-nexa="contact">contact</button>
+      </div>
+    </div>
+    <form class="nexa-input-row" id="nexaForm">
+      <span>&gt;</span>
+      <input id="nexaInput" autocomplete="off" maxlength="180" placeholder="ask about CRIXX..." aria-label="Ask NEXA" />
+      <button type="submit" aria-label="Send to NEXA">↵</button>
+    </form>
+    <div class="nexa-foot">local site logic · no message is sent anywhere</div>
+  </aside>
+
+  <!-- ========================
+       CRIXX COMMAND PALETTE
+  ======================== -->
+  <div class="palette-overlay" id="paletteOverlay" aria-hidden="true">
+    <div class="palette" role="dialog" aria-modal="true" aria-label="CRIXX command palette">
+      <div class="palette-top"><span>CRIXX_ COMMAND</span><kbd>esc</kbd></div>
+      <input id="paletteInput" class="palette-input" placeholder="Search / jump somewhere..." autocomplete="off" />
+      <div class="palette-list" id="paletteList"></div>
+      <div class="palette-hint">↑ ↓ navigate &nbsp;·&nbsp; enter open &nbsp;·&nbsp; ctrl+k toggle</div>
+    </div>
+  </div>
 
   <!-- ========================
        CONSOLE EASTER EGG
@@ -2811,9 +2952,9 @@
 
     const cntObs = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting) {
-        counter(document.getElementById('cntProjects'), 12);
-        counter(document.getElementById('cntHoles'), 47);
-        counter(document.getElementById('cntFails'), 23);
+        counter(document.getElementById('cntProjects'), 16);
+        counter(document.getElementById('cntHoles'), 63);
+        counter(document.getElementById('cntFails'), 31);
         cntObs.disconnect();
       }
     }, { threshold: 0.5 });
@@ -2857,6 +2998,117 @@
       });
     }
 
+    // V2 PROJECT CARD POINTER RESPONSE
+    document.querySelectorAll('.major-card').forEach(card => {
+      card.addEventListener('pointermove', e => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${e.clientX-r.left}px`);
+        card.style.setProperty('--my', `${e.clientY-r.top}px`);
+      });
+    });
+
+    // NEXA — deterministic, local site concierge. No external API / no telemetry.
+    const nexaTrigger = document.getElementById('nexaTrigger');
+    const nexaPanel = document.getElementById('nexaPanel');
+    const nexaClose = document.getElementById('nexaClose');
+    const nexaLog = document.getElementById('nexaLog');
+    const nexaForm = document.getElementById('nexaForm');
+    const nexaInput = document.getElementById('nexaInput');
+
+    function openNexa(seed='') {
+      nexaPanel.classList.add('open'); nexaPanel.setAttribute('aria-hidden','false');
+      nexaTrigger.setAttribute('aria-expanded','true');
+      setTimeout(() => nexaInput.focus(),80);
+      if (seed) askNexa(seed);
+    }
+    function closeNexa(){ nexaPanel.classList.remove('open'); nexaPanel.setAttribute('aria-hidden','true'); nexaTrigger.setAttribute('aria-expanded','false'); }
+    function nexaMsg(text,type='system',actions=[]) {
+      const d=document.createElement('div'); d.className=`nexa-msg ${type}`; d.innerHTML=text; nexaLog.appendChild(d);
+      if(actions.length){ const a=document.createElement('div'); a.className='nexa-actions'; actions.forEach(x=>{ const b=document.createElement('button'); b.type='button'; b.textContent=x.label; b.addEventListener('click',x.run); a.appendChild(b); }); nexaLog.appendChild(a); }
+      nexaLog.scrollTop=nexaLog.scrollHeight;
+    }
+    function jumpTo(id){ const el=document.getElementById(id); if(el){ closeNexa(); el.scrollIntoView({behavior:'smooth'}); } }
+    function contactActions(){ return [
+      {label:'email',run:()=>location.href='mailto:walterwhitemd8@gmail.com?subject=From%20CrixxLabs%20portfolio'},
+      {label:'github',run:()=>window.open('https://github.com/CrixxLabs','_blank','noopener')},
+      {label:'x / twitter',run:()=>window.open('https://x.com/CrixxLabs','_blank','noopener')},
+      {label:'contact section',run:()=>jumpTo('connect')}
+    ]; }
+    function askNexa(raw){
+      const q=(raw||'').trim(); if(!q) return; nexaMsg(q,'user'); const t=q.toLowerCase();
+      const has=(...words)=>words.some(w=>t.includes(w));
+      const techAnswer=(name,body)=>{nexaMsg(`<span class="gold">${name}</span> ${body}`);};
+
+      if(/^(hi|hey|hello|yo|sup|wassup|what's up|whats up)\b/.test(t)){
+        nexaMsg('Hey. I’m <span class="gold">NEXA_</span> — the site interface. I know this lab, the person behind it, and enough general tech to be useful without pretending I know everything.'); return;
+      }
+      if(has('how are you','you good','how r u')){ nexaMsg('Online, deterministic, and not paying API bills. So — pretty good.'); return; }
+      if(has('what can you do','what do you do','help me','help')){ nexaMsg('I can explain CRIXX, projects, skills, education, current learning, basic tech concepts, and get you to the right contact or page. I won’t fake an answer outside that lane.', 'system', [{label:'record',run:()=>location.href='record.html'},{label:'projects',run:()=>jumpTo('projects')},{label:'contact',run:()=>jumpTo('connect')}]); return; }
+      if(has('who made you','who built you','creator')){ nexaMsg('CRIXX built me for this site. No external AI API in this version — just local logic, a small knowledge layer, and good manners about not hallucinating.'); return; }
+      if((t.includes('who') && has('crixx','arjun','you')) || t.includes('what does he do')){
+        nexaMsg('<strong>CRIXX is Arjun.</strong> A third-year BCA student focused on AI, ML and robotics, with a habit of turning technical rabbit holes into working systems.', 'system', [{label:'about',run:()=>jumpTo('about')},{label:'record',run:()=>location.href='record.html'},{label:'projects',run:()=>jumpTo('projects')}]); return;
+      }
+      if(has('education','qualification','qualifications','college','university','degree','study','studying','school')){
+        nexaMsg('Current track: <strong>BCA — Artificial Intelligence, Machine Learning & Robotics</strong> at Yenepoya in Bengaluru, now in year three. Earlier schooling was at Ibn Al Hytham Islamic School in Bahrain. The <span class="gold">Record</span> page keeps the useful credentials and skills in one place.', 'system', [{label:'open record',run:()=>location.href='record.html'}]); return;
+      }
+      if(has('certificate','certificates','credential','credentials','coursera')){
+        nexaMsg('There are a lot of certificates. The site deliberately shows only the ones that add signal: AI, data analytics, deep learning, retrieval/search, robotics, cybersecurity and selected Microsoft tooling.', 'system', [{label:'selected record',run:()=>location.href='record.html#credentials'}]); return;
+      }
+      if(has('internship','hire','hiring','work with','available for work','job')){
+        nexaMsg('For internships, collaborations or project conversations, use the contact routes. The site is the proof layer; the conversation can happen after.', 'system', contactActions()); return;
+      }
+      if(t.includes('phoenix')){ nexaMsg('<span class="gold">PHOENIX</span> is a manifest-driven .NET Windows toolkit: tweaks, controls, inspections, repairs, packages, profiles, verification and rollback. P1→P20 is complete; it is currently being release-hardened on real Windows.', 'system', [{label:'show project',run:()=>jumpTo('projects')}]); return; }
+      if(t.includes('orion')){ nexaMsg('<span class="gold">ORION</span> is an independent search/retrieval engine with provider abstraction, ranking, dedupe, history, multiple search verticals and its own API.', 'system', [{label:'github ↗',run:()=>window.open('https://github.com/CrixxLabs/ORION','_blank','noopener')},{label:'show projects',run:()=>jumpTo('projects')}]); return; }
+      if(t.includes('sentinel')){ nexaMsg('<span class="gold">SENTINEL</span> is Windows system intelligence: telemetry, diagnostics, history, anomalies and a local API/dashboard. It is still in active development, so the site doesn’t pretend otherwise.', 'system', [{label:'show project',run:()=>jumpTo('projects')}]); return; }
+      if(t.includes('jarvis')){ nexaMsg('<span class="gold">Jarvis MARK VII</span> is the flagship personal AI system — planner, executor, observer, memory, voice and desktop automation. NEXA is not Jarvis; I just run this website.', 'system', [{label:'meet jarvis',run:()=>jumpTo('jarvis')}]); return; }
+      if(t.includes('project') || t.includes('build')){ nexaMsg('The main builds right now are <strong>Jarvis</strong>, <strong>ORION</strong>, <strong>SENTINEL</strong>, and <strong>PHOENIX</strong>. Different products, different jobs. The experiments below them are the messier part of the lab.', 'system', [{label:'projects',run:()=>jumpTo('projects')},{label:'field log',run:()=>jumpTo('now')}]); return; }
+      if(has('contact','reach','email','talk','message','linkedin')){ nexaMsg('Sure. Pick a route. I don’t send anything on your behalf — I just get you to the right door.', 'system', contactActions()); return; }
+      if(has('github','source','code')){ nexaMsg('Public code lives under <span class="gold">CrixxLabs</span>. Projects go public when they’re worth handing to strangers.', 'system', [{label:'open github ↗',run:()=>window.open('https://github.com/CrixxLabs','_blank','noopener')}]); return; }
+      if(has('skill','skills','stack','tech','technology','language','languages')){ nexaMsg('The useful stack is broader than one language: Python, C#/.NET, PowerShell, APIs, Windows automation, search/retrieval, SQL/data work, LLM integration, Git and frontend basics. The Record page separates actual working skills from course noise.', 'system', [{label:'open record',run:()=>location.href='record.html'}]); return; }
+      if(t.includes('music')){ nexaMsg('Wrong interface, right rabbit hole. The vinyl shelf is down there.', 'system', [{label:'music',run:()=>jumpTo('music')}]); return; }
+      if(t.includes('game')){ nexaMsg('Proof that the machine occasionally does something besides compile.', 'system', [{label:'games',run:()=>jumpTo('games')}]); return; }
+
+      // Small general-tech layer. Deliberately short; this is a site interface, not a search engine.
+      if(has('what is ai','artificial intelligence')){ techAnswer('AI —','software techniques that perform tasks associated with reasoning, perception, prediction, language or decision-making. Machine learning is one way of building AI systems, not a synonym for all of AI.'); return; }
+      if(has('machine learning','what is ml')){ techAnswer('Machine learning —','models learn patterns from data instead of having every rule hand-written. Supervised, unsupervised and reinforcement learning are common families.'); return; }
+      if(has('deep learning','neural network','neural networks')){ techAnswer('Deep learning —','machine learning built around multi-layer neural networks. CNNs are strong with spatial/image patterns; recurrent/sequence models handle ordered data, though transformers now dominate many language tasks.'); return; }
+      if(has('what is python','python language')){ techAnswer('Python —','a general-purpose programming language with a huge ecosystem for automation, data, AI/ML, APIs and scripting. It is the main language behind Jarvis and a lot of the lab work.'); return; }
+      if(has('what is c#','what is csharp','c sharp','.net')){ techAnswer('C# / .NET —','the stack PHOENIX uses for a typed, structured Windows toolkit with clear project boundaries, testing and native platform integration.'); return; }
+      if(has('powershell')){ techAnswer('PowerShell —','Windows-focused shell and automation language. Useful for system administration, but PHOENIX no longer treats “a pile of PowerShell scripts” as its architecture.'); return; }
+      if(has('api','what is an api')){ techAnswer('API —','a defined interface that lets software talk to other software. ORION exposes one; Jarvis uses several; good APIs keep the messy internals behind a stable contract.'); return; }
+      if(has('llm','large language model','chatgpt')){ techAnswer('LLM —','a model trained to predict and generate language patterns. Jarvis uses LLMs as reasoning components, but the surrounding memory, tools, execution and verification are what turn a model into a system.'); return; }
+      if(has('search engine','retrieval')){ techAnswer('Search / retrieval —','take a query, fetch candidate information, normalize it, rank it and return useful results. ORION is the lab project built around that pipeline.'); return; }
+      if(has('robotics','robot')){ techAnswer('Robotics —','software meets sensing, mechanics and control. The current study track covers motion, kinematics, dynamics, planning and manipulation — the useful stuff after “make robot move” stops being enough.'); return; }
+      if(has('sql','database')){ techAnswer('SQL —','the language used to query and manipulate relational data. Useful for analytics, structured storage and any system that eventually outgrows JSON files everywhere.'); return; }
+
+      if(has('thanks','thank you','thx')){ nexaMsg('Anytime. I’m literally here for this.'); return; }
+      if(has('bye','goodbye','see you')){ nexaMsg('Later. The projects will probably be different by the time you come back.'); return; }
+      nexaMsg('I don’t have a useful answer for that one. I can handle this site, CRIXX, projects, education/skills, contact, and basic tech questions. For everything else I’d rather admit the gap than improvise facts.');
+    }
+    nexaTrigger.addEventListener('click',()=>nexaPanel.classList.contains('open')?closeNexa():openNexa());
+    nexaClose.addEventListener('click',closeNexa);
+    nexaForm.addEventListener('submit',e=>{e.preventDefault(); const q=nexaInput.value; nexaInput.value=''; askNexa(q);});
+    nexaLog.addEventListener('click',e=>{ const b=e.target.closest('[data-nexa]'); if(b) askNexa(b.dataset.nexa); });
+
+    // COMMAND PALETTE — Ctrl/Cmd + K
+    const paletteOverlay=document.getElementById('paletteOverlay');
+    const paletteInput=document.getElementById('paletteInput');
+    const paletteList=document.getElementById('paletteList');
+    let paletteIndex=0, paletteFiltered=[];
+    const paletteItems=[
+      ['About CRIXX','about',()=>jumpTo('about')],['Field log','now',()=>jumpTo('now')],['Jarvis','flagship',()=>jumpTo('jarvis')],
+      ['Projects','orion sentinel phoenix',()=>jumpTo('projects')],['Record','skills education credentials',()=>location.href='record.html'],['ORION on GitHub','search source',()=>window.open('https://github.com/CrixxLabs/ORION','_blank','noopener')],
+      ['Music','vinyl',()=>jumpTo('music')],['Games','play',()=>jumpTo('games')],['Philosophy','thinking',()=>jumpTo('thinking')],
+      ['Contact','email github x linkedin',()=>jumpTo('connect')],['Open NEXA_','site interface assistant',()=>{closePalette();openNexa();}],['Open CRIXX console','terminal easter egg',()=>{closePalette();openConsole();}]
+    ];
+    function renderPalette(){ const q=paletteInput.value.toLowerCase().trim(); paletteFiltered=paletteItems.filter(x=>(x[0]+' '+x[1]).toLowerCase().includes(q)); paletteIndex=Math.min(paletteIndex,Math.max(0,paletteFiltered.length-1)); paletteList.innerHTML=''; paletteFiltered.forEach((x,i)=>{ const b=document.createElement('button'); b.className='palette-item'+(i===paletteIndex?' active':''); b.innerHTML=`<span>${x[0]}</span><small>${x[1]}</small>`; b.addEventListener('click',()=>{closePalette();x[2]();}); paletteList.appendChild(b); }); }
+    function openPalette(){ paletteOverlay.classList.add('open'); paletteOverlay.setAttribute('aria-hidden','false'); paletteInput.value=''; paletteIndex=0; renderPalette(); setTimeout(()=>paletteInput.focus(),50); }
+    function closePalette(){ paletteOverlay.classList.remove('open'); paletteOverlay.setAttribute('aria-hidden','true'); }
+    paletteInput.addEventListener('input',()=>{paletteIndex=0;renderPalette();});
+    paletteInput.addEventListener('keydown',e=>{ if(e.key==='ArrowDown'){e.preventDefault();paletteIndex=Math.min(paletteIndex+1,paletteFiltered.length-1);renderPalette();} if(e.key==='ArrowUp'){e.preventDefault();paletteIndex=Math.max(0,paletteIndex-1);renderPalette();} if(e.key==='Enter'&&paletteFiltered[paletteIndex]){e.preventDefault();const x=paletteFiltered[paletteIndex];closePalette();x[2]();} if(e.key==='Escape')closePalette(); });
+    paletteOverlay.addEventListener('click',e=>{if(e.target===paletteOverlay)closePalette();});
+    document.addEventListener('keydown',e=>{ if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault(); paletteOverlay.classList.contains('open')?closePalette():openPalette();} if(e.key==='Escape'&&nexaPanel.classList.contains('open'))closeNexa(); });
+
     // CONSOLE EASTER EGG
     const overlay   = document.getElementById('consoleOverlay');
     const cBody     = document.getElementById('cBody');
@@ -2872,6 +3124,11 @@
         '  whoami   — who is CRIXX?',
         '  jarvis   — about the flagship',
         '  projects — orion, sentinel, phoenix',
+        '  record   — skills, education, selected credentials',
+        '  orion    — search engine',
+        '  sentinel — system intelligence',
+        '  phoenix  — Windows toolkit',
+        '  nexa     — open the site interface',
         '  proverb  — a random one from the field log',
         '  stack    — what I use',
         '  mission  — current objective',
@@ -2889,19 +3146,53 @@
         ' '
       ],
       jarvis: [
-        '<span style="color:var(--gold)">Jarvis — Personal AI Assistant</span>',
-        'My flagship project. Long-term build.',
+        '<span style="color:var(--gold)">Jarvis MARK VII — Personal AI Assistant</span>',
+        'Current generation of the flagship project.',
         'AI + Automation + Knowledge management.',
         'Every version better than the last.',
         'Status: active development.',
         ' '
       ],
       projects: [
-        '<span style="color:var(--gold)">Orion</span> — search / retrieval engine. In development.',
-        '<span style="color:var(--gold)">Sentinel</span> — Windows system intelligence. In development.',
-        '<span style="color:var(--gold)">Phoenix</span> — modular Windows optimization tool. In development.',
+        '<span style="color:var(--gold)">ORION</span> — independent search / retrieval engine. Built; public on GitHub.',
+        '<span style="color:var(--gold)">SENTINEL</span> — Windows system intelligence. Active development.',
+        '<span style="color:var(--gold)">PHOENIX</span> — manifest-driven Windows system toolkit. Release hardening.',
         'Scroll to the Projects section for the full picture.',
         ' '
+      ],
+      orion: [
+        '<span style="color:var(--gold)">ORION</span>',
+        'Independent full-stack search / retrieval engine.',
+        'Provider abstraction · ranking · dedupe · history · web/images/news/videos.',
+        'Status: built; public repository available.',
+        'GitHub: https://github.com/CrixxLabs/ORION',
+        ' '
+      ],
+      sentinel: [
+        '<span style="color:var(--gold)">SENTINEL</span>',
+        'Windows telemetry, diagnostics, history, and system intelligence.',
+        'Current focus: reliability, trustworthy signals, local API + dashboard.',
+        'Status: active development.',
+        ' '
+      ],
+      phoenix: [
+        '<span style="color:var(--gold)">PHOENIX</span>',
+        'Manifest-driven .NET Windows system toolkit.',
+        '23 tweaks · 8 controls · 10 tools · 5 repairs · 143-test baseline.',
+        'P1-P20 complete. Status: release hardening + real-machine smoke testing.',
+        ' '
+      ],
+      nexa: [
+        '<span style="color:var(--gold)">NEXA_</span>',
+        'Site interface. Not Jarvis. Not a chatbot pretending to be a person.',
+        'Ask it about CRIXX, projects, or contact.',
+        ' '
+      ],
+      record: [
+        '<span style="color:var(--gold)">RECORD</span>',
+        'Education · working skills · selected credentials · current learning.',
+        'Open: record.html',
+        ' ',
       ],
       stack: [
         '<span style="color:var(--gold)">Current stack:</span>',
@@ -2962,6 +3253,7 @@
         addLine(' ');
         return;
       }
+      if (cmd === 'nexa') { openNexa(); return; }
       if (cmds[cmd]) {
         cmds[cmd].forEach(l => addLine(l));
       } else if (cmd === '') {
@@ -2991,6 +3283,7 @@
       if (document.activeElement.tagName.toLowerCase() === 'input' &&
           document.activeElement !== cInput) return;
       if (e.key === 'Escape') { closeConsole(); return; }
+      if (e.ctrlKey || e.metaKey || e.altKey || e.key.length !== 1) return;
       buffer += e.key.toLowerCase();
       if (buffer.includes('crixx')) { buffer = ''; openConsole(); }
       if (buffer.length > 10) buffer = buffer.slice(-10);
